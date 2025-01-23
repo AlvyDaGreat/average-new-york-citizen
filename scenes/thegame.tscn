@@ -1,15 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://n5mrhnle6bvo"]
 
 [ext_resource type="PackedScene" uid="uid://2jhlcp6lh7m" path="res://nodes/player_bear.tscn" id="1_640mb"]
-[ext_resource type="AudioStream" uid="uid://cso1slmf4tp3h" path="res://music/Sonic Chronicles The Dark Brotherhood - Central City [6o47N-aYd08].mp3" id="1_dd4lu"]
+[ext_resource type="AudioStream" path="res://music/Death Note - (L's Theme D) Music [JH62WCaqxp0].mp3" id="1_r5mpl"]
 
 [node name="Thegame" type="Node2D"]
 
+[node name="PlayerBear" parent="." instance=ExtResource("1_640mb")]
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_dd4lu")
+stream = ExtResource("1_r5mpl")
 autoplay = true
 bus = &"Music"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="PlayerBear" parent="." instance=ExtResource("1_640mb")]
+[node name="See tjos??!" type="Node2D" parent="."]

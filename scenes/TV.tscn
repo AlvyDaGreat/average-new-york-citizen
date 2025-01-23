@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://c35qitd1vybjk"]
 
+[ext_resource type="AudioStream" path="res://music/Kuroi Light [VIiOSrYclc8].mp3" id="1_k7q43"]
 [ext_resource type="Texture2D" uid="uid://mo8gqyedksub" path="res://sprites/TVopen.png" id="1_tgvgx"]
 [ext_resource type="Script" path="res://scripts/tv.gd" id="2_7mfva"]
 [ext_resource type="Script" path="res://scripts/area_2d.gd" id="3_hfmwy"]
-[ext_resource type="AudioStream" uid="uid://cmx0cjovcstdo" path="res://music/His World -Theme of Sonic The Hedgehog- [ej5MN9lPZXw].mp3" id="4_liyj2"]
 [ext_resource type="Script" path="res://scripts/neverguesstext.gd" id="5_vnnu8"]
 
 [sub_resource type="Gradient" id="Gradient_jhat1"]
@@ -129,7 +129,7 @@ shape = SubResource("RectangleShape2D_jucpc")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_liyj2")
+stream = ExtResource("1_k7q43")
 autoplay = true
 bus = &"Music"
 
