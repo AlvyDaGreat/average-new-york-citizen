@@ -9,7 +9,9 @@
 [node name="PlayerBear" parent="." instance=ExtResource("1_640mb")]
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerBear"]
+texture_filter = 1
 texture = ExtResource("2_3pedj")
+hframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerBear/Sprite2D"]
 
