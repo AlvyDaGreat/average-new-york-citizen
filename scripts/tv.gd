@@ -41,6 +41,7 @@ func _input(ev):
 				self.texture = WOW
 				self.hframes = 2
 				$AnimationPlayer.play("wow")
+				$"../AudioStreamPlayerWOW".play()
 			_:
 				combo = 0
 		print(combo)

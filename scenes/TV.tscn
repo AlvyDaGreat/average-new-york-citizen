@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://c35qitd1vybjk"]
+[gd_scene load_steps=16 format=3 uid="uid://c35qitd1vybjk"]
 
 [ext_resource type="Texture2D" uid="uid://mo8gqyedksub" path="res://sprites/TVopen.png" id="1_tgvgx"]
 [ext_resource type="Script" path="res://scripts/tv.gd" id="2_7mfva"]
 [ext_resource type="Script" path="res://scripts/area_2d.gd" id="3_hfmwy"]
 [ext_resource type="AudioStream" uid="uid://cmx0cjovcstdo" path="res://music/His World -Theme of Sonic The Hedgehog- [ej5MN9lPZXw].mp3" id="4_6er11"]
+[ext_resource type="AudioStream" uid="uid://buj816j72fpmc" path="res://sfx/WOW.wav" id="5_rsdq3"]
 [ext_resource type="Script" path="res://scripts/neverguesstext.gd" id="5_vnnu8"]
 [ext_resource type="PackedScene" uid="uid://gr6x6u0baadx" path="res://nodes/volume_slider.tscn" id="6_r0xdg"]
 
@@ -133,6 +134,10 @@ shape = SubResource("RectangleShape2D_jucpc")
 stream = ExtResource("4_6er11")
 autoplay = true
 bus = &"Music"
+
+[node name="AudioStreamPlayerWOW" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_rsdq3")
+bus = &"SFX"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 129.0
