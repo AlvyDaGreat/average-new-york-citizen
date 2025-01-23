@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://n5mrhnle6bvo"]
+[gd_scene load_steps=3 format=3 uid="uid://n5mrhnle6bvo"]
 
+[ext_resource type="PackedScene" uid="uid://2jhlcp6lh7m" path="res://nodes/player_bear.tscn" id="1_640mb"]
 [ext_resource type="AudioStream" uid="uid://ch2gyswbswvqb" path="res://music/Death Note - (L's Theme D) Music [JH62WCaqxp0].mp3" id="1_r5mpl"]
 
 [node name="Thegame" type="Node2D"]
@@ -10,3 +11,5 @@ autoplay = true
 bus = &"Music"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PlayerBear" parent="." instance=ExtResource("1_640mb")]
