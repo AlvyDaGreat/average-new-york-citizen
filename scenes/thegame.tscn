@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://n5mrhnle6bvo"]
+
+[ext_resource type="PackedScene" uid="uid://2jhlcp6lh7m" path="res://nodes/player_bear.tscn" id="1_640mb"]
+[ext_resource type="AudioStream" uid="uid://ch2gyswbswvqb" path="res://music/Death Note - (L's Theme D) Music [JH62WCaqxp0].mp3" id="1_r5mpl"]
+[ext_resource type="Texture2D" uid="uid://dxuiuahm4aqxm" path="res://sprites/BearKid.png" id="2_3pedj"]
+
+[node name="Thegame" type="Node2D"]
+
+[node name="PlayerBear" parent="." instance=ExtResource("1_640mb")]
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerBear"]
+texture = ExtResource("2_3pedj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerBear/Sprite2D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_r5mpl")
+autoplay = true
+bus = &"Music"
+
+[node name="Camera2D" type="Camera2D" parent="."]

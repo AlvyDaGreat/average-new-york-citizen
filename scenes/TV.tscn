@@ -1,0 +1,142 @@
+[gd_scene load_steps=14 format=3 uid="uid://c35qitd1vybjk"]
+
+[ext_resource type="AudioStream" uid="uid://tectj0hbc570" path="res://music/Kuroi Light [VIiOSrYclc8].mp3" id="1_k7q43"]
+[ext_resource type="Texture2D" uid="uid://mo8gqyedksub" path="res://sprites/TVopen.png" id="1_tgvgx"]
+[ext_resource type="Script" path="res://scripts/tv.gd" id="2_7mfva"]
+[ext_resource type="Script" path="res://scripts/area_2d.gd" id="3_hfmwy"]
+[ext_resource type="Script" path="res://scripts/neverguesstext.gd" id="5_vnnu8"]
+
+[sub_resource type="Gradient" id="Gradient_jhat1"]
+colors = PackedColorArray(0.423864, 0.677421, 0.957055, 1, 0.38987, 0.643386, 0.963276, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xgi5m"]
+gradient = SubResource("Gradient_jhat1")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Animation" id="Animation_wu561"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kmfma"]
+resource_name = "spawn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_oboqm"]
+resource_name = "tutorial"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ctitt"]
+resource_name = "wow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(0, 0), Vector2i(1, 0), Vector2i(0, 0), Vector2i(1, 0), Vector2i(0, 0), Vector2i(1, 0), Vector2i(0, 0), Vector2i(1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"summonbloom"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ayfxy"]
+_data = {
+"RESET": SubResource("Animation_wu561"),
+"spawn": SubResource("Animation_kmfma"),
+"tutorial": SubResource("Animation_oboqm"),
+"wow": SubResource("Animation_ctitt")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jucpc"]
+size = Vector2(197, 135)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.5, 1)
+scale = Vector2(18.4219, 10.75)
+texture = SubResource("GradientTexture2D_xgi5m")
+
+[node name="TV" type="Sprite2D" parent="."]
+texture = ExtResource("1_tgvgx")
+hframes = 5
+script = ExtResource("2_7mfva")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TV"]
+libraries = {
+"": SubResource("AnimationLibrary_ayfxy")
+}
+
+[node name="Area2D" type="Area2D" parent="TV"]
+priority = 1
+script = ExtResource("3_hfmwy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TV/Area2D"]
+position = Vector2(-2.5, -8.5)
+shape = SubResource("RectangleShape2D_jucpc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_k7q43")
+autoplay = true
+bus = &"Music"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 129.0
+offset_top = -46.0
+offset_right = 421.0
+offset_bottom = 18.0
+text = "you're never gonna guess what the code is"
+script = ExtResource("5_vnnu8")
