@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://c35qitd1vybjk"]
+[gd_scene load_steps=15 format=3 uid="uid://c35qitd1vybjk"]
 
-[ext_resource type="AudioStream" path="res://music/Kuroi Light [VIiOSrYclc8].mp3" id="1_k7q43"]
 [ext_resource type="Texture2D" uid="uid://mo8gqyedksub" path="res://sprites/TVopen.png" id="1_tgvgx"]
 [ext_resource type="Script" path="res://scripts/tv.gd" id="2_7mfva"]
 [ext_resource type="Script" path="res://scripts/area_2d.gd" id="3_hfmwy"]
+[ext_resource type="AudioStream" uid="uid://cmx0cjovcstdo" path="res://music/His World -Theme of Sonic The Hedgehog- [ej5MN9lPZXw].mp3" id="4_6er11"]
 [ext_resource type="Script" path="res://scripts/neverguesstext.gd" id="5_vnnu8"]
+[ext_resource type="PackedScene" uid="uid://gr6x6u0baadx" path="res://nodes/volume_slider.tscn" id="6_r0xdg"]
 
 [sub_resource type="Gradient" id="Gradient_jhat1"]
 colors = PackedColorArray(0.423864, 0.677421, 0.957055, 1, 0.38987, 0.643386, 0.963276, 1)
@@ -129,7 +130,7 @@ shape = SubResource("RectangleShape2D_jucpc")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_k7q43")
+stream = ExtResource("4_6er11")
 autoplay = true
 bus = &"Music"
 
@@ -140,3 +141,33 @@ offset_right = 421.0
 offset_bottom = 18.0
 text = "you're never gonna guess what the code is"
 script = ExtResource("5_vnnu8")
+
+[node name="Volume ts" type="Node" parent="."]
+
+[node name="VolumeSlider" parent="Volume ts" instance=ExtResource("6_r0xdg")]
+offset_left = -539.0
+offset_top = -102.0
+offset_right = -519.0
+offset_bottom = 302.0
+bus_name = "Music"
+
+[node name="VolumeSlider2" parent="Volume ts" instance=ExtResource("6_r0xdg")]
+offset_left = -511.0
+offset_top = -102.0
+offset_right = -491.0
+offset_bottom = 303.0
+bus_name = "VO"
+
+[node name="VolumeSlider3" parent="Volume ts" instance=ExtResource("6_r0xdg")]
+offset_left = -484.0
+offset_top = -103.0
+offset_right = -464.0
+offset_bottom = 303.0
+bus_name = "SFX"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Volume ts"]
+offset_left = -572.0
+offset_top = 299.0
+offset_right = -426.0
+offset_bottom = 332.0
+text = "music voices sfx"

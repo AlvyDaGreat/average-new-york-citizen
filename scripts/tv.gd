@@ -13,10 +13,6 @@ func _ready() -> void:
 	set_process_input(true) 
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func _input(ev):
 	if ev is InputEventKey and ev.pressed == true and ev.echo == false:
 		match ev.keycode:
