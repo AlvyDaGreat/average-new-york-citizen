@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbhv8h5c6gah"]
+
+[sub_resource type="GDScript" id="GDScript_boyei"]
+resource_name = "emit"
+script/source = "extends Node2D
+
+
+func _ready() -> void:
+	var particle:CPUParticles2D = $CPUParticles2D
+	var smoke:CPUParticles2D = $CPUParticles2D2
+	particle.emitting = true
+	smoke.emitting = true
+	await particle.finished
+	await smoke.finished
+	print('done')
+	queue_free()
+"
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rhvnk"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_6f2ll"]
+colors = PackedColorArray(1, 0.282353, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_achya"]
+colors = PackedColorArray(0.458405, 0.458405, 0.458405, 0.588235, 0, 0, 0, 0)
+
+[node name="Smoke" type="Node2D"]
+script = SubResource("GDScript_boyei")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = -10
+material = SubResource("CanvasItemMaterial_rhvnk")
+emitting = false
+amount = 20
+lifetime = 1.5
+one_shot = true
+speed_scale = 6.82
+explosiveness = 1.0
+lifetime_randomness = 0.54
+direction = Vector2(0, 0)
+spread = 15.91
+gravity = Vector2(0, 0)
+initial_velocity_max = 101.02
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+color_ramp = SubResource("Gradient_6f2ll")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+z_index = -25
+emitting = false
+amount = 20
+lifetime = 0.67
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.54
+direction = Vector2(0, 0)
+spread = 72.27
+gravity = Vector2(0, 0)
+initial_velocity_max = 50.51
+damping_max = 7.071
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+color_ramp = SubResource("Gradient_achya")
+hue_variation_min = -1.0
+hue_variation_max = 1.0

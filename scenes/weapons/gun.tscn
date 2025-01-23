@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://dvfg0aaxhuuf3"]
+
+[ext_resource type="Script" path="res://nodes/gun.gd" id="1_r5d4q"]
+[ext_resource type="Texture2D" uid="uid://clos5bcycrc1" path="res://sprites/glock.webp" id="2_d6qjh"]
+[ext_resource type="AudioStream" uid="uid://127lxrjcvqv5" path="res://sfx/gun/pew/shoot1.ogg" id="3_3w4s3"]
+[ext_resource type="AudioStream" uid="uid://cxdrb2n3bunfy" path="res://sfx/gun/pew/shoot2.ogg" id="4_ntkb7"]
+[ext_resource type="AudioStream" uid="uid://b68u8eovwh5dr" path="res://sfx/gun/pew/shoot3.ogg" id="5_g4mdm"]
+[ext_resource type="AudioStream" uid="uid://djw20bi12le5p" path="res://sfx/gun/pew/shoot4.ogg" id="6_8ib0k"]
+[ext_resource type="AudioStream" uid="uid://bylnj7v7wum4p" path="res://sfx/gun/pew/shoot5.ogg" id="7_i1etk"]
+
+[node name="Gun" type="Node2D"]
+script = ExtResource("1_r5d4q")
+
+[node name="GlockSprite" type="Sprite2D" parent="."]
+position = Vector2(42, 0)
+scale = Vector2(0.0568215, 0.0324994)
+texture = ExtResource("2_d6qjh")
+offset = Vector2(211.187, 0)
+flip_h = true
+
+[node name="Barrel" type="Node2D" parent="GlockSprite"]
+position = Vector2(545.568, -215.389)
+scale = Vector2(17.599, 30.7698)
+
+[node name="BulletPosition" type="Node2D" parent="GlockSprite"]
+position = Vector2(228.787, 0)
+scale = Vector2(17.599, 30.7698)
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Pew" type="Node" parent="Sounds"]
+
+[node name="1" type="AudioStreamPlayer" parent="Sounds/Pew"]
+stream = ExtResource("3_3w4s3")
+
+[node name="2" type="AudioStreamPlayer" parent="Sounds/Pew"]
+stream = ExtResource("4_ntkb7")
+
+[node name="3" type="AudioStreamPlayer" parent="Sounds/Pew"]
+stream = ExtResource("5_g4mdm")
+
+[node name="4" type="AudioStreamPlayer" parent="Sounds/Pew"]
+stream = ExtResource("6_8ib0k")
+
+[node name="5" type="AudioStreamPlayer" parent="Sounds/Pew"]
+stream = ExtResource("7_i1etk")

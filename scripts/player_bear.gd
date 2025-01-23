@@ -16,6 +16,9 @@ const MAX_DASH = 3000.0
 @onready var hold = false
 @onready var power = 0
 
+@onready var dashCooldown = false
+@onready var skidCooldown = false
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(&'Enter'):
 		dashBar.max_value = MAX_DASH
@@ -25,6 +28,8 @@ func _input(event: InputEvent) -> void:
 		dashBar.hide()
 		hold = false
 		dashVector = Input.get_vector(&'Left',&'Right',&'Up',&'Down') * power
+		$Sounds/Dash.play()
+		skidCooldown = false
 		for i in 5:
 			print('bal;l;s')
 			var inst = sprite.duplicate()
@@ -49,12 +54,16 @@ func _process(delta: float) -> void:
 	elif dir.x < 0:
 		sprite.flip_h = true
 	if dir.length() == 0:
-		animationPlayer.play(&'idle')
+		if not dashVector.length() > 50:
+			animationPlayer.current_animation = 'idle'
 	else:
-		animationPlayer.play(&'walk')
-	if dashVector.length() > 200:
-		animationPlayer.play(&'run')
+		if not dashVector.length() > 50:
+			animationPlayer.current_animation = 'walk'
+	if dashVector.length() > 300:
+		animationPlayer.current_animation = 'run'
 	elif dashVector.length() > 50:
-		animationPlayer.play(&'slide')
-	dashVector = dashVector.lerp(Vector2(),10 * delta)
+		animationPlayer.current_animation = 'slide'
+		
+		
+	dashVector = dashVector.lerp(Vector2(),5 * delta)
 	position += (dir * SPEED * delta )+ (dashVector * delta)
