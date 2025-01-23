@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://2jhlcp6lh7m"]
+[gd_scene load_steps=8 format=3 uid="uid://2jhlcp6lh7m"]
 
 [ext_resource type="Texture2D" uid="uid://dxuiuahm4aqxm" path="res://sprites/BearKid.png" id="1_oigx3"]
+[ext_resource type="Script" path="res://scripts/player_bear.gd" id="1_pgrm3"]
 [ext_resource type="Texture2D" uid="uid://clos5bcycrc1" path="res://sprites/glock.webp" id="2_h4ek2"]
 
 [sub_resource type="Animation" id="Animation_mpkf2"]
@@ -45,6 +46,7 @@ _data = {
 size = Vector2(44, 55)
 
 [node name="PlayerBear" type="CharacterBody2D"]
+script = ExtResource("1_pgrm3")
 
 [node name="BearSprite" type="Sprite2D" parent="."]
 texture_filter = 1
