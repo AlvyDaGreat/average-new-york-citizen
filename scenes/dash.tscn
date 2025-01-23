@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://m7krihvhvtvc"]
+
+[sub_resource type="GDScript" id="GDScript_c08pn"]
+resource_name = "fadeout"
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	for i in get_children():
+		if i.is_class('Sprite2D'):
+			i.self_modulate.a -= delta * 10
+			if i.self_modulate.a <= 0:
+				print('haha')
+				queue_free()
+			print(self_modulate.a)
+"
+
+[node name="Dash" type="Node2D"]
+script = SubResource("GDScript_c08pn")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://2jhlcp6lh7m"]
+[gd_scene load_steps=9 format=3 uid="uid://2jhlcp6lh7m"]
 
 [ext_resource type="Texture2D" uid="uid://dxuiuahm4aqxm" path="res://sprites/BearKid.png" id="1_oigx3"]
 [ext_resource type="Script" path="res://scripts/player_bear.gd" id="1_pgrm3"]
 [ext_resource type="Texture2D" uid="uid://clos5bcycrc1" path="res://sprites/glock.webp" id="2_h4ek2"]
+[ext_resource type="Script" path="res://nodes/gun.gd" id="3_t7v72"]
 
 [sub_resource type="Animation" id="Animation_ecq5a"]
 length = 0.001
@@ -62,8 +63,12 @@ libraries = {
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_jixxr")
 
-[node name="GlockSprite" type="Sprite2D" parent="."]
-position = Vector2(40, 19)
+[node name="Gun" type="Node2D" parent="."]
+rotation = -1.79594
+script = ExtResource("3_t7v72")
+
+[node name="GlockSprite" type="Sprite2D" parent="Gun"]
+position = Vector2(57, 6)
 scale = Vector2(0.0859375, 0.0491525)
 texture = ExtResource("2_h4ek2")
 flip_h = true
