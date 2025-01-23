@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bbp87mttlyq8p"
+path="res://.godot/imported/The World Adventure - Sonic Unleashed [OST] [-RFE6yP9CRI].mp3-6c45198d95b8ff350f9d53e54b9e08a9.mp3str"
+
+[deps]
+
+source_file="res://music/The World Adventure - Sonic Unleashed [OST] [-RFE6yP9CRI].mp3"
+dest_files=["res://.godot/imported/The World Adventure - Sonic Unleashed [OST] [-RFE6yP9CRI].mp3-6c45198d95b8ff350f9d53e54b9e08a9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
