@@ -1,7 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://n5mrhnle6bvo"]
+[gd_scene load_steps=6 format=3 uid="uid://n5mrhnle6bvo"]
 
 [ext_resource type="PackedScene" uid="uid://2jhlcp6lh7m" path="res://nodes/player_bear.tscn" id="1_640mb"]
 [ext_resource type="AudioStream" uid="uid://cso1slmf4tp3h" path="res://music/Sonic Chronicles The Dark Brotherhood - Central City [6o47N-aYd08].mp3" id="1_dd4lu"]
+
+[sub_resource type="GDScript" id="GDScript_vsfoj"]
+resource_name = "cam"
+script/source = "extends Camera2D
+
+
+# Called when the node enters the scene tree for the first time
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	position = position.lerp(Vector2(),10*delta)
+"
 
 [sub_resource type="Gradient" id="Gradient_hyqgv"]
 
@@ -15,7 +27,9 @@ height = 1
 [node name="PlayerBear" parent="." instance=ExtResource("1_640mb")]
 
 [node name="Camera2D" type="Camera2D" parent="PlayerBear"]
+rotation = 1.39626
 position_smoothing_enabled = true
+script = SubResource("GDScript_vsfoj")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_dd4lu")
