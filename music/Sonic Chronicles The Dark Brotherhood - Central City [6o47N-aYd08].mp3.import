@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cso1slmf4tp3h"
+path="res://.godot/imported/Sonic Chronicles The Dark Brotherhood - Central City [6o47N-aYd08].mp3-7f2e8dbf0d7f797ada0abbe856fa4d35.mp3str"
+
+[deps]
+
+source_file="res://music/Sonic Chronicles The Dark Brotherhood - Central City [6o47N-aYd08].mp3"
+dest_files=["res://.godot/imported/Sonic Chronicles The Dark Brotherhood - Central City [6o47N-aYd08].mp3-7f2e8dbf0d7f797ada0abbe856fa4d35.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

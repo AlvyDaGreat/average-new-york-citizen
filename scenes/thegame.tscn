@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://n5mrhnle6bvo"]
 
 [ext_resource type="PackedScene" uid="uid://2jhlcp6lh7m" path="res://nodes/player_bear.tscn" id="1_640mb"]
-[ext_resource type="AudioStream" uid="uid://ch2gyswbswvqb" path="res://music/Death Note - (L's Theme D) Music [JH62WCaqxp0].mp3" id="1_r5mpl"]
+[ext_resource type="AudioStream" uid="uid://cmx0cjovcstdo" path="res://music/His World -Theme of Sonic The Hedgehog- [ej5MN9lPZXw].mp3" id="1_mvfi3"]
 
 [node name="Thegame" type="Node2D"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_r5mpl")
+stream = ExtResource("1_mvfi3")
 autoplay = true
 bus = &"Music"
 
