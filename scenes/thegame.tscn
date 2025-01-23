@@ -13,5 +13,3 @@ autoplay = true
 bus = &"Music"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="See tjos??!" type="Node2D" parent="."]
