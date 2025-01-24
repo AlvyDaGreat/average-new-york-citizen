@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://2jhlcp6lh7m"]
+[gd_scene load_steps=21 format=3 uid="uid://2jhlcp6lh7m"]
 
 [ext_resource type="Texture2D" uid="uid://dxuiuahm4aqxm" path="res://sprites/BearKid.png" id="1_oigx3"]
 [ext_resource type="Script" path="res://scripts/player_bear.gd" id="1_pgrm3"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://dyn1pftn3us7u" path="res://sfx/dash.ogg" id="6_w7752"]
 [ext_resource type="AudioStream" uid="uid://7cor7ynqsl5d" path="res://sfx/walk/step2.ogg" id="7_codcd"]
 [ext_resource type="AudioStream" uid="uid://ugdheonkhtj6" path="res://sfx/skid.ogg" id="7_iyuor"]
+[ext_resource type="AudioStream" uid="uid://w1q3c6do6bfl" path="res://sfx/youch.ogg" id="10_ldx12"]
 
 [sub_resource type="Animation" id="Animation_ecq5a"]
 length = 0.001
@@ -273,6 +274,26 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jixxr"]
 size = Vector2(44, 55)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qm0t0"]
+bg_color = Color(0.24893, 2.63215e-07, 5.41471e-08, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0962047, 0.0962048, 0.0962046, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ljwos"]
+bg_color = Color(0.6, 1, 0.6, 1)
+
+[sub_resource type="Theme" id="Theme_mh1nf"]
+ProgressBar/constants/outline_size = 5
+ProgressBar/styles/background = SubResource("StyleBoxFlat_qm0t0")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_ljwos")
+
 [node name="PlayerBear" type="CharacterBody2D"]
 script = ExtResource("1_pgrm3")
 
@@ -300,6 +321,17 @@ max_value = 700.0
 step = 0.0
 show_percentage = false
 
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -32.0
+offset_top = -49.0
+offset_right = 33.0
+offset_bottom = -42.0
+theme = SubResource("Theme_mh1nf")
+max_value = 10.0
+step = 0.0
+value = 5.0
+show_percentage = false
+
 [node name="Sounds" type="Node" parent="."]
 
 [node name="Dash" type="AudioStreamPlayer" parent="Sounds"]
@@ -317,3 +349,12 @@ volume_db = -12.53
 [node name="Step2" type="AudioStreamPlayer" parent="Sounds/Step"]
 stream = ExtResource("7_codcd")
 volume_db = -18.795
+
+[node name="Youch" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("10_ldx12")
+
+[node name="Player" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_jixxr")

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bcue0vhlyq76p"]
 
 [ext_resource type="Script" path="res://scenes/enemies/young_blud.gd" id="1_i3wiq"]
-[ext_resource type="Material" uid="uid://hqgkc6ggbquj" path="res://light.tres" id="2_al35l"]
 [ext_resource type="Texture2D" uid="uid://fkc35hd0xp3p" path="res://image.png" id="2_rljfl"]
+[ext_resource type="AudioStream" uid="uid://uqdg1oo785bc" path="res://sfx/htitt.ogg" id="3_q3nip"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r5o67"]
 size = Vector2(40, 54)
@@ -11,12 +11,14 @@ size = Vector2(40, 54)
 script = ExtResource("1_i3wiq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 1)
-material = ExtResource("2_al35l")
 scale = Vector2(0.0687285, 0.0687286)
 texture = ExtResource("2_rljfl")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Enemy" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
 shape = SubResource("RectangleShape2D_r5o67")
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_q3nip")
+volume_db = -13.882

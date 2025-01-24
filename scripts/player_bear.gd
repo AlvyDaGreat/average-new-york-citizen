@@ -4,6 +4,10 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const MAX_DASH = 3000.0
+const MAX_HP = 10
+
+var hp = MAX_HP
+var lose_hp_cooldown = 0
 
 @onready var dashVector = Vector2()
 
@@ -67,3 +71,33 @@ func _process(delta: float) -> void:
 		
 	dashVector = dashVector.lerp(Vector2(),5 * delta)
 	position += (dir * SPEED * delta )+ (dashVector * delta)
+	
+	lose_hp_cooldown = max(0,lose_hp_cooldown-delta)
+	
+	$HealthBar.value = hp
+	
+	if $Player.has_overlapping_areas():
+		var areas = $Player.get_overlapping_areas()
+		for i in areas:
+			if i.name == 'Enemy' and lose_hp_cooldown == 0:
+				$Sounds/Youch.play()
+				hp -= 1
+				hit()
+				lose_hp_cooldown = 1
+	if hp <= 0 and not $'..'.dead:
+		$'..'.dead = true
+		$'..'.emit_signal('death')
+		
+		
+func hit():
+	sprite.self_modulate = Color.RED
+	await get_tree().create_timer(0.1).timeout
+	sprite.self_modulate  = Color.WHITE
+	await get_tree().create_timer(0.1).timeout
+	sprite.self_modulate .a = 0
+	await get_tree().create_timer(0.1).timeout
+	sprite.self_modulate .a = 1
+	await get_tree().create_timer(0.05).timeout
+	sprite.self_modulate .a = 0
+	await get_tree().create_timer(0.05).timeout
+	sprite.self_modulate .a = 1
