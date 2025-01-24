@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://n5mrhnle6bvo"]
+[gd_scene load_steps=10 format=3 uid="uid://n5mrhnle6bvo"]
 
 [ext_resource type="PackedScene" uid="uid://2jhlcp6lh7m" path="res://nodes/player_bear.tscn" id="1_640mb"]
-[ext_resource type="AudioStream" uid="uid://cso1slmf4tp3h" path="res://music/Sonic Chronicles The Dark Brotherhood - Central City [6o47N-aYd08].mp3" id="1_dd4lu"]
 [ext_resource type="PackedScene" uid="uid://dvfg0aaxhuuf3" path="res://scenes/weapons/gun.tscn" id="2_0yphn"]
+[ext_resource type="AudioStream" uid="uid://cp0cs2j35cm5d" path="res://music/aifludhadg.mp3" id="3_j2jat"]
+[ext_resource type="Texture2D" uid="uid://cafyw5v5mii4c" path="res://icon.svg" id="4_nucu6"]
+[ext_resource type="PackedScene" uid="uid://bcue0vhlyq76p" path="res://scenes/enemies/young blud.tscn" id="5_jneu0"]
 
 [sub_resource type="GDScript" id="GDScript_vsfoj"]
 resource_name = "cam"
@@ -25,23 +27,46 @@ gradient = SubResource("Gradient_hyqgv")
 width = 1
 height = 1
 
+[sub_resource type="GDScript" id="GDScript_701rc"]
+resource_name = "dumpster"
+script/source = "extends Node2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	var young_blud = preload('res://scenes/enemies/young blud.tscn')
+	while true:
+		position.x += 5
+		await get_tree().create_timer(0.1).timeout
+		position.x -= 10
+		await get_tree().create_timer(0.1).timeout
+		position.x += 5
+		await get_tree().create_timer(0.1).timeout
+		var inst = young_blud.instantiate()
+		$'..'.add_child(inst)
+		inst.position = position
+		await get_tree().create_timer(1).timeout
+"
+
 [node name="Thegame" type="Node2D"]
 
 [node name="PlayerBear" parent="." instance=ExtResource("1_640mb")]
 
 [node name="Camera2D" type="Camera2D" parent="PlayerBear"]
+limit_top = -300
+limit_bottom = 300
 position_smoothing_enabled = true
 script = SubResource("GDScript_vsfoj")
 
 [node name="Gun" parent="PlayerBear" instance=ExtResource("2_0yphn")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_dd4lu")
+stream = ExtResource("3_j2jat")
 volume_db = -3.78
 autoplay = true
 bus = &"Music"
 
 [node name="Level" type="Node2D" parent="."]
+position = Vector2(-194, 11)
 
 [node name="Cube" type="Sprite2D" parent="Level"]
 modulate = Color(1, 1, 1, 0.239216)
@@ -826,3 +851,1587 @@ z_index = -1455
 position = Vector2(959, -277)
 scale = Vector2(20.875, 19.149)
 texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Level2" type="Node2D" parent="."]
+position = Vector2(-1767, 13)
+
+[node name="Cube" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-529, -275)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube2" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-424, -274)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube3" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-329, -274)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube4" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-233, -275)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube5" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-133, -274)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube6" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-28, -273)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube7" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(67, -273)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube8" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(163, -274)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube9" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-525, -186)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube10" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-420, -185)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube11" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-325, -185)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube12" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-229, -186)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube13" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-129, -185)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube14" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-24, -184)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube15" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(71, -184)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube16" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(167, -185)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube17" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-522, -102)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube18" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-417, -101)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube19" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-322, -101)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube20" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-226, -102)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube21" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-126, -101)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube22" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-21, -100)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube23" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(74, -100)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube24" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(170, -101)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube25" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-522, -19)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube26" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-417, -18)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube27" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-322, -18)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube28" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-226, -19)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube29" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-126, -18)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube30" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-21, -17)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube31" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(74, -17)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube32" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(170, -18)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube33" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-521, 76)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube34" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-416, 77)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube35" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-321, 77)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube36" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-225, 76)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube37" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-125, 77)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube38" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-20, 78)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube39" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(75, 78)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube40" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(171, 77)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube41" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-518, 181)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube42" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-413, 182)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube43" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-318, 182)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube44" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-222, 181)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube45" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-122, 182)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube46" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-17, 183)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube47" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(78, 183)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube48" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(174, 182)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube49" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-518, 272)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube50" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-413, 273)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube51" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-318, 273)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube52" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-222, 272)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube53" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-122, 273)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube54" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-17, 274)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube55" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(78, 274)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube56" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(174, 273)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube57" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(272, 270)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube58" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(377, 271)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube59" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(472, 271)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube60" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(568, 270)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube61" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(668, 271)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube62" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(773, 272)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube63" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(868, 272)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube64" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(964, 271)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube65" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(271, 178)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube66" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(376, 179)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube67" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(471, 179)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube68" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(567, 178)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube69" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(667, 179)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube70" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(772, 180)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube71" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(867, 180)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube72" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(963, 179)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube73" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(270, 79)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube74" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(375, 80)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube75" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(470, 80)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube76" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(566, 79)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube77" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(666, 80)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube78" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(771, 81)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube79" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(866, 81)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube80" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(962, 80)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube81" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(275, -17)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube82" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(380, -16)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube83" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(475, -16)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube84" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(571, -17)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube85" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(671, -16)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube86" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(776, -15)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube87" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(871, -15)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube88" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(967, -16)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube89" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(272, -98)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube90" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(377, -97)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube91" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(472, -97)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube92" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(568, -98)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube93" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(668, -97)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube94" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(773, -96)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube95" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(868, -96)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube96" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(964, -97)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube97" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(271, -191)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube98" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(376, -190)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube99" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(471, -190)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube100" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(567, -191)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube101" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(667, -190)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube102" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(772, -189)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube103" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(867, -189)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube104" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(963, -190)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube105" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(267, -278)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube106" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(372, -277)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube107" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(467, -277)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube108" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(563, -278)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube109" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(663, -277)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube110" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(768, -276)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube111" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(863, -276)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube112" type="Sprite2D" parent="Level2"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(959, -277)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Level3" type="Node2D" parent="."]
+position = Vector2(1389, 12)
+
+[node name="Cube" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-529, -275)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube2" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-424, -274)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube3" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-329, -274)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube4" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-233, -275)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube5" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-133, -274)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube6" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-28, -273)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube7" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(67, -273)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube8" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(163, -274)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube9" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-525, -186)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube10" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-420, -185)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube11" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-325, -185)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube12" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-229, -186)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube13" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-129, -185)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube14" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-24, -184)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube15" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(71, -184)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube16" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(167, -185)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube17" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-522, -102)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube18" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-417, -101)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube19" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-322, -101)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube20" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-226, -102)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube21" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-126, -101)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube22" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-21, -100)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube23" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(74, -100)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube24" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(170, -101)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube25" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-522, -19)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube26" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-417, -18)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube27" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-322, -18)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube28" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-226, -19)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube29" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-126, -18)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube30" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-21, -17)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube31" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(74, -17)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube32" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(170, -18)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube33" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-521, 76)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube34" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-416, 77)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube35" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-321, 77)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube36" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-225, 76)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube37" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-125, 77)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube38" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-20, 78)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube39" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(75, 78)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube40" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(171, 77)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube41" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-518, 181)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube42" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-413, 182)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube43" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-318, 182)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube44" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-222, 181)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube45" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-122, 182)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube46" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-17, 183)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube47" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(78, 183)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube48" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(174, 182)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube49" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-518, 272)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube50" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-413, 273)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube51" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-318, 273)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube52" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-222, 272)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube53" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-122, 273)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube54" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(-17, 274)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube55" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(78, 274)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube56" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(174, 273)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube57" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(272, 270)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube58" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(377, 271)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube59" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(472, 271)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube60" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(568, 270)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube61" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(668, 271)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube62" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(773, 272)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube63" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(868, 272)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube64" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(964, 271)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube65" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(271, 178)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube66" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(376, 179)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube67" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(471, 179)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube68" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(567, 178)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube69" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(667, 179)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube70" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(772, 180)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube71" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(867, 180)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube72" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(963, 179)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube73" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(270, 79)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube74" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(375, 80)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube75" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(470, 80)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube76" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(566, 79)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube77" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(666, 80)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube78" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(771, 81)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube79" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(866, 81)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube80" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(962, 80)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube81" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(275, -17)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube82" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(380, -16)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube83" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(475, -16)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube84" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(571, -17)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube85" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(671, -16)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube86" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(776, -15)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube87" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(871, -15)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube88" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(967, -16)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube89" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(272, -98)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube90" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(377, -97)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube91" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(472, -97)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube92" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(568, -98)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube93" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(668, -97)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube94" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(773, -96)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube95" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(868, -96)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube96" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(964, -97)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube97" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(271, -191)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube98" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(376, -190)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube99" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(471, -190)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube100" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(567, -191)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube101" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(667, -190)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube102" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(772, -189)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube103" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(867, -189)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube104" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(963, -190)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube105" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(267, -278)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube106" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(372, -277)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube107" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(467, -277)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube108" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(563, -278)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube109" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(663, -277)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube110" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(768, -276)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube111" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(863, -276)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Cube112" type="Sprite2D" parent="Level3"]
+modulate = Color(1, 1, 1, 0.239216)
+z_index = -1455
+position = Vector2(959, -277)
+scale = Vector2(20.875, 19.149)
+texture = SubResource("GradientTexture2D_csllb")
+
+[node name="Dumpster" type="Node2D" parent="."]
+position = Vector2(-132, -204)
+script = SubResource("GDScript_701rc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Dumpster"]
+scale = Vector2(1.46875, 0.578125)
+texture = ExtResource("4_nucu6")
+
+[node name="YoungBlud" parent="." instance=ExtResource("5_jneu0")]

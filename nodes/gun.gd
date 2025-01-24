@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 	delay = rotation
 	position += Input.get_vector(&'Left',&'Right',&'Up',&'Down')
 	position = position.lerp(Vector2(),10*delta)
-	sprite.rotation = lerp_angle(sprite.rotation,0,5*delta)
+	sprite.rotation = lerp_angle(sprite.rotation,0,10*delta)
 	if global_rotation_degrees > 90 or global_rotation_degrees < -90:
 		sprite.scale = Vector2(0.057,-0.032)
 		
@@ -52,9 +52,9 @@ func _process(delta: float) -> void:
 			smoke.rotation = barrel.global_rotation
 			inst.look_at(get_global_mouse_position())
 			if global_rotation_degrees > 90 or global_rotation_degrees < -90:
-				sprite.rotation = 1
+				sprite.rotation = 0.5
 			else:
-				sprite.rotation = -1
+				sprite.rotation = -0.5
 			
 			if $'../..'.find_child('Camera2D'):
 				var cam = $'../..'.find_child('Camera2D')
