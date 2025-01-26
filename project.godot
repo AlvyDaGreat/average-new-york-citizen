@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="average new york citizen"
-run/main_scene="res://scenes/thegame.tscn"
+run/main_scene="res://scenes/3Dscene.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 boot_splash/show_image=false
 config/icon="res://icon.svg"
@@ -65,5 +65,5 @@ click={
 
 [rendering]
 
-renderer/rendering_method="mobile"
+textures/canvas_textures/default_texture_filter=0
 textures/vram_compression/import_etc2_astc=true

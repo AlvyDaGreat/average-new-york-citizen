@@ -16,7 +16,7 @@ var lose_hp_cooldown = 0
 @onready var dashBar = $DashBar
 
 @onready var cooldown = 0
-@onready var dashScene = preload('res://scenes/dash.tscn')
+@onready var dashScene = preload('res://scenes/old/dash.tscn')
 @onready var hold = false
 @onready var power = 0
 

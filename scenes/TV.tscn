@@ -1,11 +1,11 @@
 [gd_scene load_steps=16 format=3 uid="uid://c35qitd1vybjk"]
 
 [ext_resource type="Texture2D" uid="uid://mo8gqyedksub" path="res://sprites/TVopen.png" id="1_tgvgx"]
-[ext_resource type="Script" path="res://scripts/tv.gd" id="2_7mfva"]
-[ext_resource type="Script" path="res://scripts/area_2d.gd" id="3_hfmwy"]
+[ext_resource type="Script" path="res://scripts/old/tv.gd" id="2_7mfva"]
+[ext_resource type="Script" path="res://scripts/old/area_2d.gd" id="3_hfmwy"]
 [ext_resource type="AudioStream" uid="uid://cmx0cjovcstdo" path="res://music/His World -Theme of Sonic The Hedgehog- [ej5MN9lPZXw].mp3" id="4_6er11"]
 [ext_resource type="AudioStream" uid="uid://buj816j72fpmc" path="res://sfx/WOW.wav" id="5_rsdq3"]
-[ext_resource type="Script" path="res://scripts/neverguesstext.gd" id="5_vnnu8"]
+[ext_resource type="Script" path="res://scripts/old/neverguesstext.gd" id="5_vnnu8"]
 [ext_resource type="PackedScene" path="res://nodes/volume_slider.tscn" id="6_r0xdg"]
 
 [sub_resource type="Gradient" id="Gradient_jhat1"]
@@ -154,21 +154,21 @@ offset_left = -539.0
 offset_top = -102.0
 offset_right = -519.0
 offset_bottom = 302.0
-bus_name = "Music"
+script = null
 
 [node name="VolumeSlider2" parent="Volume ts" instance=ExtResource("6_r0xdg")]
 offset_left = -511.0
 offset_top = -102.0
 offset_right = -491.0
 offset_bottom = 303.0
-bus_name = "VO"
+script = null
 
 [node name="VolumeSlider3" parent="Volume ts" instance=ExtResource("6_r0xdg")]
 offset_left = -484.0
 offset_top = -103.0
 offset_right = -464.0
 offset_bottom = 303.0
-bus_name = "SFX"
+script = null
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Volume ts"]
 offset_left = -572.0

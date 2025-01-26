@@ -1,12 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://2jhlcp6lh7m"]
+[gd_scene load_steps=24 format=3 uid="uid://2jhlcp6lh7m"]
 
 [ext_resource type="Texture2D" uid="uid://dxuiuahm4aqxm" path="res://sprites/BearKid.png" id="1_oigx3"]
-[ext_resource type="Script" path="res://scripts/player_bear.gd" id="1_pgrm3"]
+[ext_resource type="Script" path="res://scripts/old/player_bear.gd" id="1_pgrm3"]
 [ext_resource type="Texture2D" uid="uid://c420hvyeql2tk" path="res://sprites/DashBearKid.png" id="3_lrx30"]
 [ext_resource type="Texture2D" uid="uid://d1xajqw1puqy6" path="res://sprites/walk.png" id="4_oe7p6"]
 [ext_resource type="Texture2D" uid="uid://cq0wmy5wbsgq2" path="res://sprites/slide.png" id="5_s47wf"]
 [ext_resource type="AudioStream" uid="uid://bd0j3l8mbm70q" path="res://sfx/walk/step1.ogg" id="6_d5hsx"]
-[ext_resource type="AudioStream" uid="uid://dyn1pftn3us7u" path="res://sfx/dash.ogg" id="6_w7752"]
+[ext_resource type="AudioStream" uid="uid://qokq87gl63eo" path="res://sfx/dash.wav" id="6_o73yq"]
 [ext_resource type="AudioStream" uid="uid://7cor7ynqsl5d" path="res://sfx/walk/step2.ogg" id="7_codcd"]
 [ext_resource type="AudioStream" uid="uid://ugdheonkhtj6" path="res://sfx/skid.ogg" id="7_iyuor"]
 [ext_resource type="AudioStream" uid="uid://w1q3c6do6bfl" path="res://sfx/youch.ogg" id="10_ldx12"]
@@ -274,7 +274,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jixxr"]
 size = Vector2(44, 55)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qm0t0"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ho1yx"]
 bg_color = Color(0.24893, 2.63215e-07, 5.41471e-08, 1)
 border_width_left = 2
 border_width_top = 2
@@ -286,13 +286,40 @@ expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ljwos"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_snf7e"]
 bg_color = Color(0.6, 1, 0.6, 1)
 
 [sub_resource type="Theme" id="Theme_mh1nf"]
 ProgressBar/constants/outline_size = 5
-ProgressBar/styles/background = SubResource("StyleBoxFlat_qm0t0")
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_ljwos")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_ho1yx")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_snf7e")
+
+[sub_resource type="GDScript" id="GDScript_wi4bx"]
+resource_name = "cam"
+script/source = "extends Camera2D
+
+
+# Called when the node enters the scene tree for the first time
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	var mouse = get_local_mouse_position()
+	position += Vector2(mouse.x / get_viewport_rect().size.x,mouse.y / get_viewport_rect().size.y)
+	position = position.lerp(Vector2(),10*delta)
+"
+
+[sub_resource type="GDScript" id="GDScript_w7ip1"]
+resource_name = "button"
+script/source = "extends Button
+
+
+func _pressed() -> void:
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_oxe85"]
+font_size = 100
 
 [node name="PlayerBear" type="CharacterBody2D"]
 script = ExtResource("1_pgrm3")
@@ -308,6 +335,7 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_jixxr")
 
@@ -335,7 +363,7 @@ show_percentage = false
 [node name="Sounds" type="Node" parent="."]
 
 [node name="Dash" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("6_w7752")
+stream = ExtResource("6_o73yq")
 
 [node name="Skid" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("7_iyuor")
@@ -354,7 +382,55 @@ volume_db = -18.795
 stream = ExtResource("10_ldx12")
 
 [node name="Player" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_jixxr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_top = -300
+limit_bottom = 300
+script = SubResource("GDScript_wi4bx")
+
+[node name="Death" type="Control" parent="Camera2D"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Camera2D/Death"]
+process_mode = 3
+z_index = 150
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = 40.0
+offset_right = 102.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "RETRY?"
+script = SubResource("GDScript_w7ip1")
+
+[node name="Label" type="Label" parent="Camera2D/Death"]
+z_index = 105
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.0
+offset_top = -214.0
+offset_right = 232.0
+offset_bottom = -77.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU DIED"
+label_settings = SubResource("LabelSettings_oxe85")

@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://imvm624cl1gp" path="res://sprites/BG.png" id="1_jd0t3"]
 [ext_resource type="Texture2D" uid="uid://dxuiuahm4aqxm" path="res://sprites/BearKid.png" id="1_ti1lt"]
-[ext_resource type="Script" path="res://scripts/awesome.gd" id="2_kvrr1"]
+[ext_resource type="Script" path="res://scripts/old/awesome.gd" id="2_kvrr1"]
 [ext_resource type="Texture2D" uid="uid://d3kaniwbothoy" path="res://sprites/MRBLOOM.png" id="3_kaf4e"]
-[ext_resource type="Script" path="res://scripts/MRBLOOM.gd" id="4_exbal"]
+[ext_resource type="Script" path="res://scripts/old/MRBLOOM.gd" id="4_exbal"]
 [ext_resource type="AudioStream" uid="uid://kmp0dtj1ecl7" path="res://vo/mrbloom/immrbloomandivegotaglock.wav" id="5_41nlc"]
 [ext_resource type="Texture2D" uid="uid://clos5bcycrc1" path="res://sprites/glock.webp" id="6_c2o6g"]
 [ext_resource type="AudioStream" uid="uid://j8ayc2pfruae" path="res://vo/mrbloom/yehs.wav" id="6_st11s"]
