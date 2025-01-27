@@ -278,6 +278,8 @@ ProgressBar/styles/background = SubResource("StyleBoxFlat_qm0t0")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_ljwos")
 
 [sub_resource type="Environment" id="Environment_y300r"]
+ssao_enabled = true
+fog_enabled = true
 adjustment_enabled = true
 adjustment_color_correction = ExtResource("10_hcqyw")
 
