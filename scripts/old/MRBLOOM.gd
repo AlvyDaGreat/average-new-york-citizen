@@ -13,4 +13,4 @@ func _process(delta: float) -> void:
 
 func kys() -> void:
 	# get_tree().quit()
-	get_tree().change_scene_to_file("res://scenes/thegame.tscn")
+	get_tree().change_scene_to_file('res://scenes/3Dscene.tscn')

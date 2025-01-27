@@ -1,10 +1,59 @@
-[gd_scene load_steps=2 format=3 uid="uid://gr6x6u0baadx"]
+[gd_scene load_steps=8 format=3 uid="uid://cdxfslgayxtwj"]
 
-[ext_resource type="Script" path="res://scripts/volume_slider.gd" id="1_mwcqq"]
+[ext_resource type="Script" path="res://scripts/old/volume_slider.gd" id="1_rg4la"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mefc6"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_cdunj"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bswhh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa4go"]
+bg_color = Color(0.838897, 0.838897, 0.838897, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 2.0
+expand_margin_top = 10.0
+expand_margin_right = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pvwr"]
+bg_color = Color(0.20871, 0.20871, 0.20871, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.133196, 0.133196, 0.133196, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 12.0
+expand_margin_right = 5.0
+expand_margin_bottom = 3.0
+anti_aliasing = false
+anti_aliasing_size = 0.01
+
+[sub_resource type="Theme" id="Theme_1k53n"]
+VSlider/constants/center_grabber = 0
+VSlider/constants/grabber_offset = 0
+VSlider/icons/grabber = SubResource("PlaceholderTexture2D_mefc6")
+VSlider/icons/grabber_disabled = SubResource("PlaceholderTexture2D_cdunj")
+VSlider/icons/grabber_highlight = SubResource("PlaceholderTexture2D_bswhh")
+VSlider/icons/tick = null
+VSlider/styles/grabber_area = SubResource("StyleBoxFlat_oa4go")
+VSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_oa4go")
+VSlider/styles/slider = SubResource("StyleBoxFlat_6pvwr")
 
 [node name="VolumeSlider" type="VSlider"]
+offset_top = -112.0
 offset_right = 16.0
 offset_bottom = 8.0
+size_flags_stretch_ratio = 0.0
+theme = SubResource("Theme_1k53n")
 max_value = 1.0
 step = 0.001
-script = ExtResource("1_mwcqq")
+script = ExtResource("1_rg4la")

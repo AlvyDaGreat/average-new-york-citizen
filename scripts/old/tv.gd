@@ -1,7 +1,7 @@
 extends Sprite2D
 
-const MRBLOOM = preload("res://sprites/TVtut.png")
-const WOW = preload("res://sprites/TVwow.png")
+const MRBLOOM = preload('res://sprites/tv/TVtut.png')
+const WOW = preload('res://sprites/tv/TVwow.png')
 
 var combo = 0
 

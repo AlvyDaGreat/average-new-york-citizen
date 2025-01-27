@@ -1,15 +1,15 @@
 [gd_scene load_steps=20 format=3 uid="uid://vb8s6mwj6xow"]
 
-[ext_resource type="Texture2D" uid="uid://imvm624cl1gp" path="res://sprites/placeholders/BG.png" id="1_jd0t3"]
-[ext_resource type="Texture2D" uid="uid://ddb84mmdf37ij" path="res://sprites/BearKid.png" id="1_ti1lt"]
-[ext_resource type="Script" path="res://scripts/old/awesome.gd" id="2_kvrr1"]
-[ext_resource type="Texture2D" uid="uid://d3kaniwbothoy" path="res://sprites/mrbloom/MRBLOOM.png" id="3_kaf4e"]
-[ext_resource type="Script" path="res://scripts/old/MRBLOOM.gd" id="4_exbal"]
-[ext_resource type="AudioStream" uid="uid://kmp0dtj1ecl7" path="res://vo/mrbloom/immrbloomandivegotaglock.wav" id="5_41nlc"]
-[ext_resource type="Texture2D" uid="uid://clos5bcycrc1" path="res://sprites/placeholders/glock.webp" id="6_c2o6g"]
-[ext_resource type="AudioStream" uid="uid://j8ayc2pfruae" path="res://vo/mrbloom/yehs.wav" id="6_st11s"]
-[ext_resource type="AudioStream" uid="uid://ctnli7yr1q2u2" path="res://vo/mrbloom/imgoingtoshootyew-002.wav" id="7_yay4y"]
-[ext_resource type="AudioStream" uid="uid://cht4mn0fg1f1v" path="res://vo/mrbloom/2HOLLIS.wav" id="8_0x3bp"]
+[ext_resource type="Texture2D" uid="uid://imvm624cl1gp" path="res://sprites/placeholders/BG.png" id="1_goyuc"]
+[ext_resource type="Texture2D" uid="uid://ddb84mmdf37ij" path="res://sprites/bearkid/BearKid.png" id="2_lnq6r"]
+[ext_resource type="Script" path="res://scripts/old/awesome.gd" id="3_6rhr8"]
+[ext_resource type="Texture2D" uid="uid://d3kaniwbothoy" path="res://sprites/mrbloom/MRBLOOM.png" id="4_wsy71"]
+[ext_resource type="Script" path="res://scripts/old/MRBLOOM.gd" id="5_fabs5"]
+[ext_resource type="AudioStream" uid="uid://kmp0dtj1ecl7" path="res://vo/mrbloom/immrbloomandivegotaglock.wav" id="6_ob37q"]
+[ext_resource type="AudioStream" uid="uid://j8ayc2pfruae" path="res://vo/mrbloom/yehs.wav" id="7_yx1m1"]
+[ext_resource type="AudioStream" uid="uid://ctnli7yr1q2u2" path="res://vo/mrbloom/imgoingtoshootyew-002.wav" id="8_ugtcl"]
+[ext_resource type="AudioStream" uid="uid://cht4mn0fg1f1v" path="res://vo/mrbloom/2HOLLIS.wav" id="9_0bdrk"]
+[ext_resource type="Texture2D" uid="uid://clos5bcycrc1" path="res://sprites/placeholders/glock.webp" id="10_0l461"]
 
 [sub_resource type="Animation" id="Animation_eitxa"]
 length = 0.001
@@ -127,19 +127,19 @@ tracks/0/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("5_41nlc")
+"stream": ExtResource("6_ob37q")
 }, {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("6_st11s")
+"stream": ExtResource("7_yx1m1")
 }, {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("7_yay4y")
+"stream": ExtResource("8_ugtcl")
 }, {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("8_0x3bp")
+"stream": ExtResource("9_0bdrk")
 }],
 "times": PackedFloat32Array(0.0333333, 3.76667, 4.8, 7.2)
 }
@@ -195,15 +195,15 @@ _data = {
 texture_filter = 1
 position = Vector2(-13.0001, -2.96872)
 scale = Vector2(1.95313, 2.12795)
-texture = ExtResource("1_jd0t3")
+texture = ExtResource("1_goyuc")
 
 [node name="Player" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-258, 15)
 scale = Vector2(8.07813, 8.07813)
-texture = ExtResource("1_ti1lt")
+texture = ExtResource("2_lnq6r")
 hframes = 3
-script = ExtResource("2_kvrr1")
+script = ExtResource("3_6rhr8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
 libraries = {
@@ -214,9 +214,9 @@ libraries = {
 texture_filter = 1
 position = Vector2(279, 20)
 scale = Vector2(8.40625, 8.40625)
-texture = ExtResource("3_kaf4e")
+texture = ExtResource("4_wsy71")
 hframes = 2
-script = ExtResource("4_exbal")
+script = ExtResource("5_fabs5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BLOOM"]
 libraries = {
@@ -236,6 +236,6 @@ visible = false
 z_index = 1
 position = Vector2(-9.04089, 20.1338)
 scale = Vector2(0.0440149, 0.0801462)
-texture = ExtResource("6_c2o6g")
+texture = ExtResource("10_0l461")
 
 [node name="Camera2D" type="Camera2D" parent="."]

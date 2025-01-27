@@ -1,0 +1,389 @@
+[gd_scene load_steps=25 format=3 uid="uid://0m7771k1k1v5"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_uj1go"]
+[ext_resource type="Texture2D" uid="uid://ddb84mmdf37ij" path="res://sprites/bearkid/BearKid.png" id="2_pjghq"]
+[ext_resource type="Texture2D" uid="uid://c420hvyeql2tk" path="res://sprites/bearkid/DashBearKid.png" id="3_mjau4"]
+[ext_resource type="Texture2D" uid="uid://d1xajqw1puqy6" path="res://sprites/bearkid/walk.png" id="4_q0bwv"]
+[ext_resource type="AudioStream" uid="uid://bd0j3l8mbm70q" path="res://sfx/walk/step1.ogg" id="5_xm8n4"]
+[ext_resource type="AudioStream" uid="uid://7cor7ynqsl5d" path="res://sfx/walk/step2.ogg" id="6_2sc8w"]
+[ext_resource type="Texture2D" uid="uid://cq0wmy5wbsgq2" path="res://sprites/bearkid/slide.png" id="7_7y7bu"]
+[ext_resource type="AudioStream" uid="uid://qokq87gl63eo" path="res://sfx/dash.wav" id="8_uethd"]
+[ext_resource type="PackedScene" uid="uid://iwqhaqdijtid" path="res://components/health_component.tscn" id="9_8rprd"]
+[ext_resource type="Script" path="res://components/health_component.gd" id="10_gcan6"]
+
+[sub_resource type="Animation" id="Animation_5jj3i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_pjghq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_01kuf"]
+resource_name = "dash"
+length = 0.337
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_mjau4")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mmq2d"]
+resource_name = "idle"
+length = 0.351
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_pjghq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame_coords")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 0.133333, 0.233333),
+"transitions": PackedFloat32Array(1e-05, 1e-05, 1e-05),
+"update": 0,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g72re"]
+resource_name = "run"
+length = 0.401
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("4_q0bwv")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2i(0, 0), Vector2i(1, 0)]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Sounds/Walk/Step1")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_xm8n4")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_2sc8w")
+}],
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/3/use_blend = false
+
+[sub_resource type="Animation" id="Animation_xynau"]
+resource_name = "skid"
+length = 0.337
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_7y7bu")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 0.133333, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uchaj"]
+_data = {
+"RESET": SubResource("Animation_5jj3i"),
+"dash": SubResource("Animation_01kuf"),
+"idle": SubResource("Animation_mmq2d"),
+"run": SubResource("Animation_g72re"),
+"skid": SubResource("Animation_xynau")
+}
+
+[sub_resource type="GDScript" id="GDScript_m8xgv"]
+resource_name = "camera"
+script/source = "extends Camera3D
+
+
+@onready var plr = $'../..'
+@onready var health_component : HealthComponent = $'../../HealthComponent'
+@onready var lastPos = Vector3()
+
+func _process(delta: float) -> void:
+	position = position.lerp(plr.position - lastPos,10*delta)
+	lastPos = plr.position
+	$UI/HealthBar.max_value = health_component.max_hp
+	$UI/HealthBar.value = health_component.current_hp
+	$UI/DashBar.value = plr.power
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x40v1"]
+bg_color = Color(0.105882, 0.105882, 0.105882, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.10748, 0.10748, 0.10748, 1)
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uaklh"]
+
+[sub_resource type="Theme" id="Theme_lc5e0"]
+ProgressBar/constants/outline_size = 0
+ProgressBar/styles/background = SubResource("StyleBoxFlat_x40v1")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_uaklh")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qm0t0"]
+bg_color = Color(0.24893, 2.63215e-07, 5.41471e-08, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.0962047, 0.0962048, 0.0962046, 1)
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ljwos"]
+bg_color = Color(0.6, 1, 0.6, 1)
+
+[sub_resource type="Theme" id="Theme_qw2w5"]
+ProgressBar/constants/outline_size = 5
+ProgressBar/styles/background = SubResource("StyleBoxFlat_qm0t0")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_ljwos")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_terqo"]
+height = 0.346514
+radius = 0.271416
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.963402, -0.268062, 0, 0.268062, 0.963402, 0, 0, 0)
+script = ExtResource("1_uj1go")
+
+[node name="BearSprite" type="Sprite3D" parent="."]
+cast_shadow = 0
+lod_bias = 0.001
+ignore_occlusion_culling = true
+gi_mode = 0
+alpha_cut = 2
+alpha_scissor_threshold = 0.0
+alpha_hash_scale = 0.0
+texture_filter = 0
+texture = ExtResource("2_pjghq")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BearSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_uchaj")
+}
+
+[node name="CameraOffset" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.47981)
+
+[node name="Camera3D" type="Camera3D" parent="CameraOffset"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00210834)
+script = SubResource("GDScript_m8xgv")
+
+[node name="UI" type="Control" parent="CameraOffset/Camera3D"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DashBar" type="ProgressBar" parent="CameraOffset/Camera3D/UI"]
+layout_mode = 1
+offset_left = -564.0
+offset_top = -287.0
+offset_right = -383.0
+offset_bottom = -275.0
+theme = SubResource("Theme_lc5e0")
+max_value = 700.0
+step = 0.0
+show_percentage = false
+
+[node name="HealthBar" type="ProgressBar" parent="CameraOffset/Camera3D/UI"]
+layout_mode = 0
+offset_left = -564.0
+offset_top = -310.0
+offset_right = -288.0
+offset_bottom = -297.0
+theme = SubResource("Theme_qw2w5")
+max_value = 10.0
+step = 0.0
+value = 5.0
+show_percentage = false
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Walk" type="Node" parent="Sounds"]
+
+[node name="Step1" type="AudioStreamPlayer" parent="Sounds/Walk"]
+volume_db = -7.26
+
+[node name="Step2" type="AudioStreamPlayer" parent="Sounds/Walk"]
+stream = ExtResource("6_2sc8w")
+
+[node name="Dash" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_uethd")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+
+[node name="HealthComponent" parent="." instance=ExtResource("9_8rprd")]
+script = ExtResource("10_gcan6")
+max_hp = null
+current_hp = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.258819, -0.965925, 0, 0.965925, 0.258819, 0, -0.00241524, -0.0132679)
+shape = SubResource("CylinderShape3D_terqo")
