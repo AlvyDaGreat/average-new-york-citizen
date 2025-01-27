@@ -3,21 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxuiuahm4aqxm"
-path.s3tc="res://.godot/imported/BearKid.png-5d90766a31377e2091685f3e6c087bba.s3tc.ctex"
-path.etc2="res://.godot/imported/BearKid.png-5d90766a31377e2091685f3e6c087bba.etc2.ctex"
+path="res://.godot/imported/BearKid.png-5d90766a31377e2091685f3e6c087bba.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://sprites/BearKid.png"
-dest_files=["res://.godot/imported/BearKid.png-5d90766a31377e2091685f3e6c087bba.s3tc.ctex", "res://.godot/imported/BearKid.png-5d90766a31377e2091685f3e6c087bba.etc2.ctex"]
+dest_files=["res://.godot/imported/BearKid.png-5d90766a31377e2091685f3e6c087bba.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
