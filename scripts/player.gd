@@ -58,7 +58,7 @@ func _process(delta: float) -> void:
 	var dir = Input.get_vector(&'Left',&'Right',&'Down',&'Up')
 	position += Vector3(dir.x * SPEED *delta,dir.y * SPEED * delta,0) + Vector3(dashVector.x * delta,dashVector.y * delta,0)
 	dashVector = dashVector.lerp(Vector2(),5 * delta)
-	ui.position = camera.unproject_position(position)
+	ui.position = camera.unproject_position(global_position)
 	if hold:
 		power = clamp(power + 30 * delta,0,MAX_DASH)
 		dashBar.value = power
