@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cmx0cjovcstdo" path="res://music/His World -Theme of Sonic The Hedgehog- [ej5MN9lPZXw].mp3" id="4_6er11"]
 [ext_resource type="AudioStream" uid="uid://buj816j72fpmc" path="res://sfx/WOW.wav" id="5_rsdq3"]
 [ext_resource type="Script" path="res://scripts/old/neverguesstext.gd" id="5_vnnu8"]
-[ext_resource type="PackedScene" path="res://nodes/volume_slider.tscn" id="6_r0xdg"]
+[ext_resource type="PackedScene" uid="uid://gr6x6u0baadx" path="res://nodes/volume_slider.tscn" id="6_r0xdg"]
 
 [sub_resource type="Gradient" id="Gradient_jhat1"]
 colors = PackedColorArray(0.423864, 0.677421, 0.957055, 1, 0.38987, 0.643386, 0.963276, 1)
