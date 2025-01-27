@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c420hvyeql2tk" path="res://sprites/DashBearKid.png" id="6_feeux"]
 [ext_resource type="Texture2D" uid="uid://cq0wmy5wbsgq2" path="res://sprites/slide.png" id="7_apk44"]
 [ext_resource type="AudioStream" uid="uid://qokq87gl63eo" path="res://sfx/dash.wav" id="8_j51ou"]
+[ext_resource type="PackedScene" uid="uid://w1pvxtojwnjo" path="res://models/backally/hard.blend" id="9_tt1j6"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_55qpq"]
 animation = &"dash"
@@ -62,47 +63,6 @@ states/skid/node = SubResource("AnimationNodeAnimation_s0nno")
 states/skid/position = Vector2(543, 108)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_htppg"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_swppo"), "idle", "dash", SubResource("AnimationNodeStateMachineTransition_l5g0w"), "dash", "skid", SubResource("AnimationNodeStateMachineTransition_cajsx"), "skid", "idle", SubResource("AnimationNodeStateMachineTransition_e4p1b"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_3hekg"), "run", "dash", SubResource("AnimationNodeStateMachineTransition_yq3e1")]
 
-[sub_resource type="Animation" id="Animation_mmq2d"]
-resource_name = "idle"
-length = 0.351
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_8qwpe")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:frame_coords")
-tracks/2/interp = 0
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.0333333, 0.133333, 0.233333),
-"transitions": PackedFloat32Array(1e-05, 1e-05, 1e-05),
-"update": 0,
-"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_5jj3i"]
 length = 0.001
 tracks/0/type = "value"
@@ -152,6 +112,88 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_01kuf"]
+resource_name = "dash"
+length = 0.337
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_feeux")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mmq2d"]
+resource_name = "idle"
+length = 0.351
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_8qwpe")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame_coords")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 0.133333, 0.233333),
+"transitions": PackedFloat32Array(1e-05, 1e-05, 1e-05),
+"update": 0,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_g72re"]
@@ -213,47 +255,6 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.2)
 }
 tracks/3/use_blend = true
-
-[sub_resource type="Animation" id="Animation_01kuf"]
-resource_name = "dash"
-length = 0.337
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("6_feeux")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:frame_coords")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.266667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_xynau"]
 resource_name = "skid"
@@ -326,13 +327,7 @@ ProgressBar/constants/outline_size = 5
 ProgressBar/styles/background = SubResource("StyleBoxFlat_qm0t0")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_ljwos")
 
-[sub_resource type="SphereMesh" id="SphereMesh_a7njl"]
-
 [node name="3Dscene" type="Node3D"]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
 
 [node name="Player" type="Node3D" parent="."]
 script = ExtResource("1_edi3n")
@@ -377,6 +372,7 @@ offset_bottom = 40.0
 
 [node name="DashBar" type="ProgressBar" parent="Player/CameraOffset/Camera3D/UI"]
 visible = false
+layout_mode = 0
 offset_left = -32.0
 offset_top = 45.0
 offset_right = 33.0
@@ -386,6 +382,7 @@ step = 0.0
 show_percentage = false
 
 [node name="HealthBar" type="ProgressBar" parent="Player/CameraOffset/Camera3D/UI"]
+layout_mode = 0
 offset_left = -32.0
 offset_top = -49.0
 offset_right = 33.0
@@ -409,6 +406,5 @@ stream = ExtResource("5_gd4hs")
 [node name="Dash" type="AudioStreamPlayer" parent="Player/Sounds"]
 stream = ExtResource("8_j51ou")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72444, 0, 0)
-mesh = SubResource("SphereMesh_a7njl")
+[node name="hard" parent="." instance=ExtResource("9_tt1j6")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.01)
