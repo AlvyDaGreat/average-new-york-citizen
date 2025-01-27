@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dijmweepee3rw"
-path="res://.godot/imported/TVwow.png-ccbf84a857bd0b94cf09e5137b4a99e1.ctex"
+path="res://.godot/imported/TVwow.png-4237fb560f990ea61211809e523fad7d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/TVwow.png"
-dest_files=["res://.godot/imported/TVwow.png-ccbf84a857bd0b94cf09e5137b4a99e1.ctex"]
+source_file="res://sprites/tv/TVwow.png"
+dest_files=["res://.godot/imported/TVwow.png-4237fb560f990ea61211809e523fad7d.ctex"]
 
 [params]
 

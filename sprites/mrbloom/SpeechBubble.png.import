@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbhdlw7tflt4u"
-path="res://.godot/imported/bloomaura.png-e69937e781a8cd50c72c0f39945dc03e.ctex"
+uid="uid://ckirdpk3xrt4g"
+path="res://.godot/imported/SpeechBubble.png-5ab889c8efc40c2ece2245c2ef4fb575.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/bloomaura.png"
-dest_files=["res://.godot/imported/bloomaura.png-e69937e781a8cd50c72c0f39945dc03e.ctex"]
+source_file="res://sprites/mrbloom/SpeechBubble.png"
+dest_files=["res://.godot/imported/SpeechBubble.png-5ab889c8efc40c2ece2245c2ef4fb575.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

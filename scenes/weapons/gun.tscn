@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dvfg0aaxhuuf3"]
 
 [ext_resource type="Script" path="res://nodes/gun.gd" id="1_r5d4q"]
-[ext_resource type="Texture2D" uid="uid://clos5bcycrc1" path="res://sprites/glock.webp" id="2_d6qjh"]
+[ext_resource type="Texture2D" uid="uid://clos5bcycrc1" path="res://sprites/placeholders/glock.webp" id="2_d6qjh"]
 [ext_resource type="AudioStream" uid="uid://127lxrjcvqv5" path="res://sfx/gun/pew/shoot1.ogg" id="3_3w4s3"]
 [ext_resource type="AudioStream" uid="uid://cxdrb2n3bunfy" path="res://sfx/gun/pew/shoot2.ogg" id="4_ntkb7"]
 [ext_resource type="AudioStream" uid="uid://b68u8eovwh5dr" path="res://sfx/gun/pew/shoot3.ogg" id="5_g4mdm"]

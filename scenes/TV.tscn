@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://c35qitd1vybjk"]
 
-[ext_resource type="Texture2D" uid="uid://mo8gqyedksub" path="res://sprites/TVopen.png" id="1_tgvgx"]
+[ext_resource type="Texture2D" uid="uid://mo8gqyedksub" path="res://sprites/tv/TVopen.png" id="1_tgvgx"]
 [ext_resource type="Script" path="res://scripts/old/tv.gd" id="2_7mfva"]
 [ext_resource type="Script" path="res://scripts/old/area_2d.gd" id="3_hfmwy"]
 [ext_resource type="AudioStream" uid="uid://cmx0cjovcstdo" path="res://music/His World -Theme of Sonic The Hedgehog- [ej5MN9lPZXw].mp3" id="4_6er11"]
