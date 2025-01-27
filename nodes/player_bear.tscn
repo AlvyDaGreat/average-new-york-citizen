@@ -1,6 +1,5 @@
 [gd_scene load_steps=24 format=3 uid="uid://2jhlcp6lh7m"]
 
-[ext_resource type="Texture2D" uid="uid://dxuiuahm4aqxm" path="res://sprites/BearKid.png" id="1_oigx3"]
 [ext_resource type="Script" path="res://scripts/old/player_bear.gd" id="1_pgrm3"]
 [ext_resource type="Texture2D" uid="uid://c420hvyeql2tk" path="res://sprites/DashBearKid.png" id="3_lrx30"]
 [ext_resource type="Texture2D" uid="uid://d1xajqw1puqy6" path="res://sprites/walk.png" id="4_oe7p6"]
@@ -10,6 +9,9 @@
 [ext_resource type="AudioStream" uid="uid://7cor7ynqsl5d" path="res://sfx/walk/step2.ogg" id="7_codcd"]
 [ext_resource type="AudioStream" uid="uid://ugdheonkhtj6" path="res://sfx/skid.ogg" id="7_iyuor"]
 [ext_resource type="AudioStream" uid="uid://w1q3c6do6bfl" path="res://sfx/youch.ogg" id="10_ldx12"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qonuh"]
+load_path = "res://.godot/imported/BearKid.png-5d90766a31377e2091685f3e6c087bba.s3tc.ctex"
 
 [sub_resource type="Animation" id="Animation_ecq5a"]
 length = 0.001
@@ -35,7 +37,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_oigx3")]
+"values": [SubResource("CompressedTexture2D_qonuh")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -100,7 +102,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_oigx3")]
+"values": [SubResource("CompressedTexture2D_qonuh")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -326,7 +328,7 @@ script = ExtResource("1_pgrm3")
 
 [node name="BearSprite" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_oigx3")
+texture = SubResource("CompressedTexture2D_qonuh")
 hframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BearSprite"]

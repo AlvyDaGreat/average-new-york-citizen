@@ -5,20 +5,32 @@ resource_name = "fadeout"
 script/source = "extends Node3D
 
 var h = 0
-var v = 0
+var v = 1
 var a = 1
+
+var prop = [Texture.new(),0,Vector2()]
 # Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	if get_node_or_null('BearSprite'):
+		var sprite = get_node('BearSprite')
+		if sprite is Sprite3D:
+			for i in sprite.get_children():
+				i.queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if get_node_or_null('BearSprite'):
-		a -= delta * 2.75
-		h += delta * 5
-		v += delta * 5
-		get_node('BearSprite').modulate = Color.from_hsv(h,v,1,a)
-		if get_node('BearSprite').modulate.a <= 0:
-			print('haha')
-			queue_free()
+		var sprite = get_node('BearSprite')
+		if sprite is Sprite3D:
+			sprite.texture = prop[0]
+			sprite.hframes = prop[1]
+			sprite.frame_coords = prop[2]
+			a -= delta * 2.75
+			h += delta * 5
+			sprite.modulate = Color.from_hsv(h,v,1,a)
+			if sprite.modulate.a <= 0:
+				print('haha')
+				queue_free()
 "
 
 [node name="Dash" type="Node3D"]

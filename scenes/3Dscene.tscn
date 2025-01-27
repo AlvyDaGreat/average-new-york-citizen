@@ -1,6 +1,6 @@
-[gd_scene load_steps=32 format=3 uid="uid://dy23ms4h2vi7p"]
+[gd_scene load_steps=20 format=3 uid="uid://dy23ms4h2vi7p"]
 
-[ext_resource type="Texture2D" uid="uid://dxuiuahm4aqxm" path="res://sprites/BearKid.png" id="1_8qwpe"]
+[ext_resource type="Texture2D" uid="uid://b2jxt0grdil27" path="res://sprites/BearKid.png" id="1_8qwpe"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_edi3n"]
 [ext_resource type="Texture2D" uid="uid://d1xajqw1puqy6" path="res://sprites/walk.png" id="3_vmoxi"]
 [ext_resource type="AudioStream" uid="uid://bd0j3l8mbm70q" path="res://sfx/walk/step1.ogg" id="4_u0oc5"]
@@ -9,58 +9,85 @@
 [ext_resource type="Texture2D" uid="uid://cq0wmy5wbsgq2" path="res://sprites/slide.png" id="7_apk44"]
 [ext_resource type="AudioStream" uid="uid://qokq87gl63eo" path="res://sfx/dash.wav" id="8_j51ou"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_55qpq"]
-animation = &"dash"
+[sub_resource type="Animation" id="Animation_5jj3i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_8qwpe")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ad6pa"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1gsfi"]
-animation = &"run"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s0nno"]
-animation = &"skid"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_htppg"]
-advance_mode = 2
-advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_swppo"]
-advance_mode = 2
-advance_condition = &"walk"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l5g0w"]
-advance_mode = 2
-advance_condition = &"dash"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cajsx"]
-advance_mode = 2
-advance_condition = &"skid"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e4p1b"]
-advance_mode = 2
-advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3hekg"]
-advance_mode = 2
-advance_condition = &"idle"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yq3e1"]
-advance_mode = 2
-advance_condition = &"dash from run"
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_sbhfa"]
-allow_transition_to_self = true
-states/Start/position = Vector2(184, 100)
-states/dash/node = SubResource("AnimationNodeAnimation_55qpq")
-states/dash/position = Vector2(438, 163)
-states/idle/node = SubResource("AnimationNodeAnimation_ad6pa")
-states/idle/position = Vector2(305, 100)
-states/run/node = SubResource("AnimationNodeAnimation_1gsfi")
-states/run/position = Vector2(444, 29)
-states/skid/node = SubResource("AnimationNodeAnimation_s0nno")
-states/skid/position = Vector2(543, 108)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_htppg"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_swppo"), "idle", "dash", SubResource("AnimationNodeStateMachineTransition_l5g0w"), "dash", "skid", SubResource("AnimationNodeStateMachineTransition_cajsx"), "skid", "idle", SubResource("AnimationNodeStateMachineTransition_e4p1b"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_3hekg"), "run", "dash", SubResource("AnimationNodeStateMachineTransition_yq3e1")]
+[sub_resource type="Animation" id="Animation_01kuf"]
+resource_name = "dash"
+length = 0.337
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_feeux")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 0.133333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_mmq2d"]
 resource_name = "idle"
@@ -101,57 +128,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1e-05, 1e-05, 1e-05),
 "update": 0,
 "values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_5jj3i"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_8qwpe")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:frame_coords")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:texture_filter")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_g72re"]
@@ -212,11 +188,11 @@ tracks/3/keys = {
 }],
 "times": PackedFloat32Array(0, 0.2)
 }
-tracks/3/use_blend = true
+tracks/3/use_blend = false
 
-[sub_resource type="Animation" id="Animation_01kuf"]
-resource_name = "dash"
-length = 0.337
+[sub_resource type="Animation" id="Animation_xynau"]
+resource_name = "skid"
+length = 0.278
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -228,7 +204,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("6_feeux")]
+"values": [ExtResource("7_apk44")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -249,37 +225,10 @@ tracks/2/path = NodePath(".:frame_coords")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.266667),
+"times": PackedFloat32Array(0.0333333, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_xynau"]
-resource_name = "skid"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("7_apk44")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:texture_filter")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uchaj"]
@@ -330,32 +279,20 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_ljwos")
 
 [node name="3Dscene" type="Node3D"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
-
 [node name="Player" type="Node3D" parent="."]
 script = ExtResource("1_edi3n")
 
 [node name="BearSprite" type="Sprite3D" parent="Player"]
 cast_shadow = 0
 lod_bias = 0.001
+ignore_occlusion_culling = true
 gi_mode = 0
 alpha_cut = 2
-alpha_scissor_threshold = 0.366
+alpha_scissor_threshold = 0.0
 alpha_hash_scale = 0.0
 texture_filter = 0
 texture = ExtResource("1_8qwpe")
 hframes = 3
-
-[node name="AnimationTree" type="AnimationTree" parent="Player/BearSprite"]
-tree_root = SubResource("AnimationNodeStateMachine_sbhfa")
-anim_player = NodePath("../AnimationPlayer")
-parameters/conditions/dash = false
-"parameters/conditions/dash from run" = false
-parameters/conditions/idle = false
-parameters/conditions/skid = false
-parameters/conditions/walk = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player/BearSprite"]
 libraries = {
@@ -377,6 +314,7 @@ offset_bottom = 40.0
 
 [node name="DashBar" type="ProgressBar" parent="Player/CameraOffset/Camera3D/UI"]
 visible = false
+layout_mode = 0
 offset_left = -32.0
 offset_top = 45.0
 offset_right = 33.0
@@ -386,6 +324,7 @@ step = 0.0
 show_percentage = false
 
 [node name="HealthBar" type="ProgressBar" parent="Player/CameraOffset/Camera3D/UI"]
+layout_mode = 0
 offset_left = -32.0
 offset_top = -49.0
 offset_right = 33.0
@@ -409,6 +348,24 @@ stream = ExtResource("5_gd4hs")
 [node name="Dash" type="AudioStreamPlayer" parent="Player/Sounds"]
 stream = ExtResource("8_j51ou")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="Player"]
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72444, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72444, 0, -1.8089)
+mesh = SubResource("SphereMesh_a7njl")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.961261, 1.23652, -1.03035)
+mesh = SubResource("SphereMesh_a7njl")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.74028, -0.7213, -2.71346)
+mesh = SubResource("SphereMesh_a7njl")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.04549, 0.377824, -0.641156)
+mesh = SubResource("SphereMesh_a7njl")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.47664, -0.469418, 0.675504)
 mesh = SubResource("SphereMesh_a7njl")

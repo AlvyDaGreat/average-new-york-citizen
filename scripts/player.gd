@@ -12,7 +12,7 @@ var lose_hp_cooldown = 0
 var dashVector = Vector2()
 
 @onready var sprite = $BearSprite
-@onready var animationTree : AnimationTree = $BearSprite/AnimationTree
+@onready var animationPlayer: AnimationPlayer = $BearSprite/AnimationPlayer
 @onready var dashBar = $CameraOffset/Camera3D/UI/DashBar
 @onready var healthBar = $CameraOffset/Camera3D/UI/HealthBar
 @onready var ui = $CameraOffset/Camera3D/UI
@@ -40,12 +40,16 @@ func _input(event: InputEvent) -> void:
 		$Sounds/Dash.play() 
 		skidCooldown = false
 		for i in 5:
-			print('bal;l;s')
 			var inst = sprite.duplicate()
-			inst.name = 'BearSprite'
-			
 			var scene = dashScene.instantiate()
+			
+			inst.name = 'BearSprite'
 			scene.add_child(inst)
+			scene.prop[0] = sprite.texture
+			scene.prop[1] = sprite.hframes
+			scene.prop[2] = sprite.frame_coords
+			print(scene.prop)
+			
 			$'..'.add_child(scene)
 			inst.global_position = global_position
 			await get_tree().create_timer(0.05).timeout
@@ -69,9 +73,12 @@ func _process(delta: float) -> void:
 
 func update_animation(dir):
 	if dir.length() == 0:
-		animationTree['parameters/conditions/walk'] = false
-		animationTree['parameters/conditions/idle'] = true
+		if dashVector.length() < 1:
+			animationPlayer.current_animation = ('idle')
 	else:
-		animationTree['parameters/conditions/idle'] = false
-		animationTree['parameters/conditions/walk'] = true
-	
+		if dashVector.length() < 1:
+			animationPlayer.current_animation = ('run')
+	if dashVector.length() > 5:
+		animationPlayer.current_animation = ('dash')
+	elif dashVector.length() > 1:
+		animationPlayer.current_animation = ('skid')
