@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dy23ms4h2vi7p"]
+[gd_scene load_steps=10 format=3 uid="uid://dy23ms4h2vi7p"]
 
 [ext_resource type="PackedScene" uid="uid://0m7771k1k1v5" path="res://scenes/player.tscn" id="1_crbpc"]
 [ext_resource type="PackedScene" uid="uid://w1pvxtojwnjo" path="res://models/backally/hard.blend" id="1_h8t78"]
+[ext_resource type="PackedScene" uid="uid://cv3sf34kkj62n" path="res://scenes/enemies/young_blud.tscn" id="2_s0q7a"]
 [ext_resource type="CompressedTexture3D" uid="uid://c0vq01t16urwa" path="res://SYNAGELUT.png" id="10_hcqyw"]
 
 [sub_resource type="Environment" id="Environment_y300r"]
@@ -31,8 +32,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.048337, 0.417119, -0.29513
 
 [node name="Player" parent="Offset" instance=ExtResource("1_crbpc")]
 
-[node name="Enemy" type="Node3D" parent="Offset"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.048337, -0.417119, 0.295137)
+[node name="YoungBlud" parent="Offset" instance=ExtResource("2_s0q7a")]
+transform = Transform3D(1, 0, 0, 0, 0.96363, -0.267238, 0, 0.267238, 0.96363, -1.87523, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_y300r")

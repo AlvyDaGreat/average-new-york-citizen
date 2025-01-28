@@ -18,6 +18,7 @@ var cooldown = 0
 var dashScene = preload('res://scenes/dash.tscn')
 var hold = false
 var power = 0
+var last_dir = Vector2(1,0)
 
 var dashCooldown = false
 var skidCooldown = false
@@ -31,7 +32,7 @@ func start_dash():
 func end_dash():
 		dashBar.hide()
 		hold = false
-		var dir = Input.get_vector(&'Left',&'Right',&'Down',&'Up') * power
+		var dir = last_dir * power
 		dashVector = Vector3(dir.x,dir.y,0)
 		$Sounds/Dash.play() 
 		skidCooldown = false
@@ -59,7 +60,8 @@ func _input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	var dir = Input.get_vector(&'Left',&'Right',&'Down',&'Up')
-	
+	if dir.length() != 0:
+		last_dir = dir
 	position += Vector3(dir.x * SPEED *delta,dir.y * SPEED * delta,0) + Vector3(dashVector.x * delta,dashVector.y * delta,0) + (inflicted_velocity * delta)
 	
 	inflicted_velocity = inflicted_velocity.lerp(Vector3(),10*delta)
