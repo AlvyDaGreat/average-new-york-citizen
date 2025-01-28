@@ -45,3 +45,14 @@ func start_phase2():
 
 func update_animations(state):
 	anim_player.current_animation = state
+
+func question_mark():
+	var question = preload('res://scenes/enemies/question_mark.tscn')
+	var inst = question.instantiate()
+	get_parent().add_child(inst,true)
+	inst.global_position = global_position + Vector3.UP / 5
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body is Player and state == 'idle':
+		question_mark()
+		state = 'spotting'

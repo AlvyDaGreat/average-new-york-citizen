@@ -244,6 +244,9 @@ radius = 3.31656
 [node name="YoungBlud" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 0.96363, -0.267238, 0, 0.267238, 0.96363, 0, 0, 0)
 script = ExtResource("1_ahbgk")
+SPEED = null
+IDLE_SPEED = null
+state = null
 
 [node name="Sprite" type="Sprite3D" parent="."]
 transform = Transform3D(0.900985, 0, 0, 0, 0.900985, 0, 0, 0, 0.900985, 0, 0, 0)

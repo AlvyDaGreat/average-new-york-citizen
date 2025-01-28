@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7c1t0qfe5qit"
-path="res://.godot/imported/nbabalblalbalbalbalalb.png-8804f54771cb26a34fd3a37715096eb4.ctex"
+uid="uid://ch8y1fwgof2m0"
+path="res://.godot/imported/phase1.png-9f4ecf2cb02697bfadb924797daff1dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/enemies/young blud/nbabalblalbalbalbalalb.png"
-dest_files=["res://.godot/imported/nbabalblalbalbalbalalb.png-8804f54771cb26a34fd3a37715096eb4.ctex"]
+source_file="res://sprites/young blud/phase1.png"
+dest_files=["res://.godot/imported/phase1.png-9f4ecf2cb02697bfadb924797daff1dd.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

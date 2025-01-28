@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck1t83ou4ojhc"
-path="res://.godot/imported/runningalongg.png-7bd3dc970f8c13fd11224b16c39368fe.ctex"
+uid="uid://b7c1t0qfe5qit"
+path="res://.godot/imported/nbabalblalbalbalbalalb.png-f0be9f86163f6cb23093b56247e9b4ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/enemies/young blud/runningalongg.png"
-dest_files=["res://.godot/imported/runningalongg.png-7bd3dc970f8c13fd11224b16c39368fe.ctex"]
+source_file="res://sprites/young blud/nbabalblalbalbalbalalb.png"
+dest_files=["res://.godot/imported/nbabalblalbalbalbalalb.png-f0be9f86163f6cb23093b56247e9b4ac.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

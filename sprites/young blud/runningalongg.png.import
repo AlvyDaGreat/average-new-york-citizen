@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xmxxawkqu6ya"
-path="res://.godot/imported/dead.png-fb72cf8831a7b2f5b544b70de2130346.ctex"
+uid="uid://ck1t83ou4ojhc"
+path="res://.godot/imported/runningalongg.png-13deb0b26ea34b8f57c4acddf0f5cf84.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/enemies/young blud/dead.png"
-dest_files=["res://.godot/imported/dead.png-fb72cf8831a7b2f5b544b70de2130346.ctex"]
+source_file="res://sprites/young blud/runningalongg.png"
+dest_files=["res://.godot/imported/runningalongg.png-13deb0b26ea34b8f57c4acddf0f5cf84.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0
