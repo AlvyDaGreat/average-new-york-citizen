@@ -4,6 +4,4 @@
 
 [node name="HitboxComponent" type="Area3D"]
 script = ExtResource("1_5nkdy")
-
-[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
-[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]
+inflicted_velocity = null

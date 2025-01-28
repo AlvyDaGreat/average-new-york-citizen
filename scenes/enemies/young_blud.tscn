@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cv3sf34kkj62n"]
+[gd_scene load_steps=21 format=3 uid="uid://cv3sf34kkj62n"]
 
 [ext_resource type="Script" path="res://scenes/enemies/young_blud.gd" id="1_ahbgk"]
 [ext_resource type="Texture2D" uid="uid://lwirtg4ibv2s" path="res://sprites/young blud/idledieldieleieieiei.png" id="2_8aqao"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://ck1t83ou4ojhc" path="res://sprites/young blud/runningalongg.png" id="4_stbli"]
 [ext_resource type="Texture2D" uid="uid://dhki5op0pnefu" path="res://sprites/young blud/attackphase2.png" id="5_ivnl2"]
 [ext_resource type="PackedScene" uid="uid://iwqhaqdijtid" path="res://components/health_component.tscn" id="6_2voeh"]
+[ext_resource type="Texture2D" uid="uid://b7c1t0qfe5qit" path="res://sprites/young blud/nbabalblalbalbalbalalb.png" id="6_6gf2t"]
 [ext_resource type="Script" path="res://components/health_component.gd" id="7_xoxma"]
+[ext_resource type="PackedScene" uid="uid://dygecvdxab3ib" path="res://components/hitbox_component.tscn" id="9_aniwl"]
 
 [sub_resource type="Animation" id="Animation_0fe63"]
 length = 0.001
@@ -91,7 +93,6 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_hlnjg"]
 resource_name = "phase1"
 length = 0.4005
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -127,6 +128,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spotted"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_gvpcu"]
@@ -224,9 +239,51 @@ tracks/2/keys = {
 "values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_mpmxn"]
+resource_name = "ball"
+length = 0.187
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_6gf2t")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 0.1, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_muku2"]
 _data = {
 "RESET": SubResource("Animation_0fe63"),
+"ball": SubResource("Animation_mpmxn"),
 "idle": SubResource("Animation_c3m4x"),
 "phase1": SubResource("Animation_hlnjg"),
 "phase2": SubResource("Animation_gvpcu"),
@@ -241,12 +298,21 @@ radius = 0.271416
 height = 0.346514
 radius = 3.31656
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5cwsh"]
+height = 0.346514
+radius = 6.2576
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_aefer"]
+height = 0.346514
+radius = 0.44706
+
 [node name="YoungBlud" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.96363, -0.267238, 0, 0.267238, 0.96363, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0)
 script = ExtResource("1_ahbgk")
 
 [node name="Sprite" type="Sprite3D" parent="."]
 transform = Transform3D(0.900985, 0, 0, 0, 0.900985, 0, 0, 0, 0.900985, 0, 0, 0)
+billboard = 1
 texture_filter = 0
 texture = ExtResource("2_8aqao")
 hframes = 4
@@ -268,8 +334,22 @@ shape = SubResource("CylinderShape3D_bbcgm")
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 0.258819, -0.965925, 0, 0.965925, 0.258819, 0, -0.00241524, -0.0132679)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -0.999999, 0, 0.999999, -4.37114e-08, 0, -0.00241524, -0.0132679)
 shape = SubResource("CylinderShape3D_xrias")
+
+[node name="Exit" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Exit"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -0.999999, 0, 0.999999, -4.37114e-08, 0, -0.00241524, -0.0132679)
+shape = SubResource("CylinderShape3D_5cwsh")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("9_aniwl")]
+inflicted_velocity = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -0.999999, 0, 0.999999, -4.37114e-08, 0, -0.00241524, -0.0132679)
+shape = SubResource("CylinderShape3D_aefer")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Exit" to="." method="_on_exit_body_exited"]

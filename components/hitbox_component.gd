@@ -1,10 +1,12 @@
 extends Area3D
 class_name HitboxComponent
 
+@export var inflicted_velocity: Vector3 = Vector3()
 
-func _on_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
-	pass # Replace with function body.
+func hit(attack: Attack):
+	inflicted_velocity += attack.attack_position - position * attack.knockback_force
 
-
-func _on_body_shape_exited(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
-	pass # Replace with function body.
+func _process(delta: float) -> void:
+	if get_parent() is Entity:
+		position += inflicted_velocity * delta
+		inflicted_velocity = inflicted_velocity.lerp(Vector3(),10 * delta)

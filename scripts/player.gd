@@ -1,11 +1,10 @@
-extends CharacterBody3D
+extends Entity
 class_name Player
 
 @export var SPEED = 2.5
 @export var MAX_DASH = 30
 
 var dashVector = Vector3()
-var inflicted_velocity = Vector3()
 
 @onready var sprite = $BearSprite
 @onready var animationPlayer: AnimationPlayer = $BearSprite/AnimationPlayer
@@ -62,9 +61,9 @@ func _process(delta: float) -> void:
 	var dir = Input.get_vector(&'Left',&'Right',&'Down',&'Up')
 	if dir.length() != 0:
 		last_dir = dir
-	position += Vector3(dir.x * SPEED *delta,dir.y * SPEED * delta,0) + Vector3(dashVector.x * delta,dashVector.y * delta,0) + (inflicted_velocity * delta)
+	position += Vector3(dir.x * SPEED *delta,dir.y * SPEED * delta,0) + Vector3(dashVector.x * delta,dashVector.y * delta,0)
 	
-	inflicted_velocity = inflicted_velocity.lerp(Vector3(),10*delta)
+
 	dashVector = dashVector.lerp(Vector3(),5 * delta)
 	
 	if hold:
