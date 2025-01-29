@@ -23,7 +23,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.048337, 0.417119, -0.29513
 [node name="Player" parent="Offset" instance=ExtResource("1_crbpc")]
 
 [node name="YoungBlud" parent="Offset" instance=ExtResource("2_s0q7a")]
-transform = Transform3D(1, 0, 0, 0, 0.96363, -0.267238, 0, 0.267238, 0.96363, -5.34945, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -5.34945, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_y300r")
