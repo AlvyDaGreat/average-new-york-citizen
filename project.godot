@@ -13,8 +13,9 @@ config_version=5
 config/name="average new york citizen"
 run/main_scene="res://scenes/3Dscene.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
-boot_splash/show_image=false
-config/icon="res://icon.svg"
+boot_splash/image="res://iconconconconconconconcon.png"
+boot_splash/use_filter=false
+config/icon="res://iconconconconconconconcon.png"
 
 [compression]
 

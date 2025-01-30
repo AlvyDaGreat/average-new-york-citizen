@@ -2,7 +2,7 @@ extends Entity
 class_name YoungBlud
 
 
-@export var SPEED = 1.0	
+@export var SPEED = 1.0
 @export var IDLE_SPEED = 0.5
 @export var state = 'idle'
 
