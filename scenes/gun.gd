@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 	var pos : Vector2 = camera.unproject_position(global_position)
 	rotation.z = atan2(mouse.x - pos.x,mouse.y - pos.y)
 	distance = (mouse - pos).length() / 200
-	print(distance)
+	# print(distance)
 	distance = min(0.5,distance)
 	cooldown = max(0,cooldown - delta)
 	offset.rotation.z = lerp_angle(offset.rotation.z,-PI / 2,10*delta)

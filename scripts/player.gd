@@ -45,7 +45,7 @@ func dash_visual():
 		scene.prop[0] = sprite.texture
 		scene.prop[1] = sprite.hframes
 		scene.prop[2] = sprite.frame_coords
-		print(scene.prop)
+		# print(scene.prop)
 		$'..'.add_child(scene)
 		inst.global_position = global_position
 		inst.global_rotation = global_rotation

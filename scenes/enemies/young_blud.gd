@@ -18,9 +18,9 @@ func idle_state(dir,delta):
 	if idle_move == 0:
 		idle_move = 2
 	if idle_move == 2:
-		print('change direction?')
+		# print('change direction?')
 		direction = randf_range(-PI,PI)
-		print(direction)
+		# print(direction)
 	if idle_move > 1:
 		position += dir * IDLE_SPEED * delta
 		anim_state = 'run'
@@ -50,7 +50,7 @@ func _process(delta: float) -> void:
 	update_animations(anim_state)
 
 func start_phase2():
-	print('yooo')
+	# print('yooo')
 	pass
 
 func update_animations(state):

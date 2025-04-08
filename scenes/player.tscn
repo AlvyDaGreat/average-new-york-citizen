@@ -329,7 +329,7 @@ hframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BearSprite"]
 libraries = {
-"": SubResource("AnimationLibrary_uchaj")
+&"": SubResource("AnimationLibrary_uchaj")
 }
 
 [node name="CameraOffset" type="Node3D" parent="."]
