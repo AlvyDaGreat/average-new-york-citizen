@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://0m7771k1k1v5"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_uj1go"]
+[ext_resource type="Script" uid="uid://mx1wju14kspl" path="res://scripts/player.gd" id="1_uj1go"]
 [ext_resource type="Texture2D" uid="uid://ddb84mmdf37ij" path="res://sprites/bearkid/BearKid.png" id="2_pjghq"]
 [ext_resource type="Texture2D" uid="uid://c420hvyeql2tk" path="res://sprites/bearkid/DashBearKid.png" id="3_mjau4"]
 [ext_resource type="Texture2D" uid="uid://d1xajqw1puqy6" path="res://sprites/bearkid/walk.png" id="4_q0bwv"]
@@ -9,9 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://cq0wmy5wbsgq2" path="res://sprites/bearkid/slide.png" id="7_7y7bu"]
 [ext_resource type="AudioStream" uid="uid://qokq87gl63eo" path="res://sfx/dash.wav" id="8_uethd"]
 [ext_resource type="PackedScene" uid="uid://iwqhaqdijtid" path="res://components/health_component.tscn" id="9_8rprd"]
-[ext_resource type="Script" path="res://components/health_component.gd" id="10_gcan6"]
+[ext_resource type="Script" uid="uid://bisp43fwkbu8k" path="res://components/health_component.gd" id="10_gcan6"]
 [ext_resource type="PackedScene" uid="uid://dygecvdxab3ib" path="res://components/hitbox_component.tscn" id="11_h54rk"]
-[ext_resource type="Script" path="res://scenes/gun.gd" id="12_k22eb"]
+[ext_resource type="Script" uid="uid://ch2nbrktstjvx" path="res://scenes/gun.gd" id="12_k22eb"]
 [ext_resource type="Texture2D" uid="uid://clos5bcycrc1" path="res://sprites/placeholders/glock.webp" id="13_dhsd6"]
 
 [sub_resource type="Animation" id="Animation_5jj3i"]
@@ -238,11 +238,11 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uchaj"]
 _data = {
-"RESET": SubResource("Animation_5jj3i"),
-"dash": SubResource("Animation_01kuf"),
-"idle": SubResource("Animation_mmq2d"),
-"run": SubResource("Animation_g72re"),
-"skid": SubResource("Animation_xynau")
+&"RESET": SubResource("Animation_5jj3i"),
+&"dash": SubResource("Animation_01kuf"),
+&"idle": SubResource("Animation_mmq2d"),
+&"run": SubResource("Animation_g72re"),
+&"skid": SubResource("Animation_xynau")
 }
 
 [sub_resource type="GDScript" id="GDScript_m8xgv"]

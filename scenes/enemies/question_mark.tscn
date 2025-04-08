@@ -84,8 +84,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7pf7y"]
 _data = {
-"RESET": SubResource("Animation_sadxo"),
-"alert": SubResource("Animation_o6bt5")
+&"RESET": SubResource("Animation_sadxo"),
+&"alert": SubResource("Animation_o6bt5")
 }
 
 [node name="QuestionMark" type="Sprite3D"]

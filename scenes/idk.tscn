@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://imvm624cl1gp" path="res://sprites/placeholders/BG.png" id="1_goyuc"]
 [ext_resource type="Texture2D" uid="uid://ddb84mmdf37ij" path="res://sprites/bearkid/BearKid.png" id="2_lnq6r"]
-[ext_resource type="Script" path="res://scripts/old/awesome.gd" id="3_6rhr8"]
+[ext_resource type="Script" uid="uid://c34dym36re7gn" path="res://scripts/old/awesome.gd" id="3_6rhr8"]
 [ext_resource type="Texture2D" uid="uid://d3kaniwbothoy" path="res://sprites/mrbloom/MRBLOOM.png" id="4_wsy71"]
-[ext_resource type="Script" path="res://scripts/old/MRBLOOM.gd" id="5_fabs5"]
+[ext_resource type="Script" uid="uid://b6ab1rkir3hn6" path="res://scripts/old/MRBLOOM.gd" id="5_fabs5"]
 [ext_resource type="AudioStream" uid="uid://kmp0dtj1ecl7" path="res://vo/mrbloom/immrbloomandivegotaglock.wav" id="6_ob37q"]
 [ext_resource type="AudioStream" uid="uid://j8ayc2pfruae" path="res://vo/mrbloom/yehs.wav" id="7_yx1m1"]
 [ext_resource type="AudioStream" uid="uid://ctnli7yr1q2u2" path="res://vo/mrbloom/imgoingtoshootyew-002.wav" id="8_ugtcl"]
@@ -45,8 +45,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iyhsk"]
 _data = {
-"RESET": SubResource("Animation_eitxa"),
-"idle": SubResource("Animation_kro7w")
+&"RESET": SubResource("Animation_eitxa"),
+&"idle": SubResource("Animation_kro7w")
 }
 
 [sub_resource type="Animation" id="Animation_kwirq"]
@@ -83,8 +83,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wc8oe"]
 _data = {
-"RESET": SubResource("Animation_kwirq"),
-"idle": SubResource("Animation_8je1p")
+&"RESET": SubResource("Animation_kwirq"),
+&"idle": SubResource("Animation_8je1p")
 }
 
 [sub_resource type="Animation" id="Animation_ytevg"]
@@ -185,8 +185,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iqfmo"]
 _data = {
-"RESET": SubResource("Animation_ytevg"),
-"yur": SubResource("Animation_sr343")
+&"RESET": SubResource("Animation_ytevg"),
+&"yur": SubResource("Animation_sr343")
 }
 
 [node name="Node2D" type="Node2D"]

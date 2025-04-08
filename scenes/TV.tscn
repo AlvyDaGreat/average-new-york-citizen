@@ -1,11 +1,11 @@
 [gd_scene load_steps=16 format=3 uid="uid://c35qitd1vybjk"]
 
 [ext_resource type="Texture2D" uid="uid://mo8gqyedksub" path="res://sprites/tv/TVopen.png" id="1_tgvgx"]
-[ext_resource type="Script" path="res://scripts/old/tv.gd" id="2_7mfva"]
-[ext_resource type="Script" path="res://scripts/old/area_2d.gd" id="3_hfmwy"]
+[ext_resource type="Script" uid="uid://dkuvonvuwkryt" path="res://scripts/old/tv.gd" id="2_7mfva"]
+[ext_resource type="Script" uid="uid://cug6hd8ey8kuj" path="res://scripts/old/area_2d.gd" id="3_hfmwy"]
 [ext_resource type="AudioStream" uid="uid://cmx0cjovcstdo" path="res://music/His World -Theme of Sonic The Hedgehog- [ej5MN9lPZXw].mp3" id="4_6er11"]
 [ext_resource type="AudioStream" uid="uid://buj816j72fpmc" path="res://sfx/WOW.wav" id="5_rsdq3"]
-[ext_resource type="Script" path="res://scripts/old/neverguesstext.gd" id="5_vnnu8"]
+[ext_resource type="Script" uid="uid://c73kko4rgbiy2" path="res://scripts/old/neverguesstext.gd" id="5_vnnu8"]
 [ext_resource type="PackedScene" uid="uid://cdxfslgayxtwj" path="res://nodes/volume_slider.tscn" id="6_r0xdg"]
 
 [sub_resource type="Gradient" id="Gradient_jhat1"]
@@ -94,10 +94,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ayfxy"]
 _data = {
-"RESET": SubResource("Animation_wu561"),
-"spawn": SubResource("Animation_kmfma"),
-"tutorial": SubResource("Animation_oboqm"),
-"wow": SubResource("Animation_ctitt")
+&"RESET": SubResource("Animation_wu561"),
+&"spawn": SubResource("Animation_kmfma"),
+&"tutorial": SubResource("Animation_oboqm"),
+&"wow": SubResource("Animation_ctitt")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jucpc"]
@@ -117,7 +117,7 @@ script = ExtResource("2_7mfva")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TV"]
 libraries = {
-"": SubResource("AnimationLibrary_ayfxy")
+&"": SubResource("AnimationLibrary_ayfxy")
 }
 
 [node name="Area2D" type="Area2D" parent="TV"]

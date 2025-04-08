@@ -12,9 +12,9 @@ config_version=5
 
 config/name="average new york citizen"
 run/main_scene="res://scenes/3Dscene.tscn"
-config/features=PackedStringArray("4.3", "Mobile")
-boot_splash/image="res://iconconconconconconconcon.png"
+config/features=PackedStringArray("4.4", "Mobile")
 boot_splash/use_filter=false
+boot_splash/image="res://iconconconconconconconcon.png"
 config/icon="res://iconconconconconconconcon.png"
 
 [compression]
@@ -76,7 +76,7 @@ textures/webp_compression/compression_method=0
 textures/webp_compression/lossless_compression_factor=0.0
 textures/default_filters/use_nearest_mipmap_filter=true
 textures/default_filters/anisotropic_filtering_level=0
+anti_aliasing/quality/msaa_3d=2
 textures/decals/filter=0
 textures/light_projectors/filter=0
-anti_aliasing/quality/msaa_3d=2
 textures/zstd/compression_level=1
